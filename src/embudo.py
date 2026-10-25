@@ -22,14 +22,15 @@ COLS = ["producto", "presentacion", "marca", "categoria", "catalogo", "giro", "c
 PASOS = [
     ("ingenua", "Comparación ingenua", "solo el nombre del producto; promedio de todos los registros del municipio"),
     ("presentacion", "Misma presentación", "mismo tamaño y unidad normalizados (kg, litro, pieza)"),
-    ("marca", "Misma marca", "misma marca y presentación (el mismo artículo)"),
+    ("marca", "Mismo artículo", "misma marca y misma descripción de PROFECO (variedad incluida)"),
     ("giro", "Mismo giro", "supermercado contra supermercado, farmacia contra farmacia…"),
     ("tiendas", "3 tiendas o más", "precio de cada tienda (mediana) y al menos 3 tiendas por municipio"),
     ("periodo", "Mismo periodo", "precio ajustado por el día de captura"),
     ("extremos", "Sin errores de captura", "sin precios fuera de 0.5×–2× de su propia cadena"),
 ]
 CLAVES = {"ingenua": ["producto"], "presentacion": ["producto", "pres_key"],
-          "marca": ["producto", "pres_key", "marca"], "giro": ["producto", "pres_key", "marca", "giro"]}
+          "marca": ["producto", "pres_key", "presentacion", "marca"],
+          "giro": ["producto", "pres_key", "presentacion", "marca", "giro"]}
 UNIDAD = CLAVES["giro"]
 
 
@@ -38,7 +39,7 @@ def presentacion_corta(pres_key, largo=34):
     """«0.6 l» → «600 ml»; «1.0 kg» → «1 kg»; «texto: Pieza. Romana» → «pieza, romana»."""
     s = str(pres_key)
     if s.startswith("texto: "):
-        t = s[7:].replace(". ", ", ").strip().lower()
+        t = s[7:].replace(". ", ", ").strip().rstrip(".").lower()
         return t if len(t) <= largo else t[:largo - 1].rstrip(" ,") + "…"
     try:
         q, u = s.split(" ")
@@ -72,9 +73,13 @@ def giro_corto(giro, plural=False):
     return g.lower()
 
 
-def etiqueta(producto, pres_key, marca):
-    """Nombre legible de un artículo: «Refresco Coca Cola Zero 600 ml», «Lechuga (pieza, romana)»."""
+def etiqueta(producto, pres_key, marca, presentacion=None):
+    """Nombre legible de un artículo: «Refresco Coca Cola Zero (botella 600 ml)», «Lechuga (pieza, romana)».
+
+    Con la descripción literal de PROFECO se ven el empaque y la variedad (p. ej., paquete con 12 latas)."""
     m = marca_corta(marca)
+    if presentacion is not None and str(presentacion) not in ("", "nan"):
+        return f"{producto} {m}".strip() + f" ({presentacion_corta('texto: ' + str(presentacion), 46)})"
     p = presentacion_corta(pres_key)
     base = f"{producto} {m}".strip()
     return f"{base} ({p})" if str(pres_key).startswith("texto: ") else f"{base} {p}"

@@ -425,9 +425,9 @@ ext = pmf.groupby(M.UNIDAD).apply(extremos_mun, include_groups=False).reset_inde
 sob = f[f.sobrevive].merge(ext, on=M.UNIDAD)
 # Relevante: además de pasar la prueba, la diferencia es de 10% o más y su IC90 queda arriba de lo típico del azar.
 sob["relevante"] = (sob.brecha_pct >= M.MIN_RELEVANTE) & (sob.ic90_inf > sob.azar_mediana)
-sob["etiqueta"] = [M.etiqueta(a, b_, c_) for a, b_, c_ in zip(sob.producto, sob.pres_key, sob.marca)]
+sob["etiqueta"] = [M.etiqueta(a, b_, c_, e_) for a, b_, c_, e_ in zip(sob.producto, sob.pres_key, sob.marca, sob.presentacion)]
 sob = sob.sort_values(["relevante", "p_valor"], ascending=[False, True])
-cols = ["etiqueta", "producto", "pres_key", "marca", "giro", "familia", "municipios", "brecha_pct", "ic90_inf", "ic90_sup",
+cols = ["etiqueta", "producto", "pres_key", "presentacion", "marca", "giro", "familia", "municipios", "brecha_pct", "ic90_inf", "ic90_sup",
         "azar_mediana", "azar_p95", "misma_cadena_pct", "mun_barato", "precio_barato", "mun_caro", "precio_caro", "p_valor", "relevante"]
 display(sob[cols].round(2))
 rel = sob[sob.relevante]
@@ -555,7 +555,7 @@ e["dist"] = np.abs(np.log(e.razon_cadena))
 e1 = e.sort_values("dist", ascending=False).iloc[0]
 med = e1.precio / e1.razon_cadena
 veces = f"{1 / e1.razon_cadena:.0f} veces menos que" if e1.razon_cadena < 1 else f"{e1.razon_cadena:.0f} veces"
-expl = (f"{M.etiqueta(e1.producto, e1.pres_key, e1.marca)}: una tienda {C.chain(e1.cadena_comercial)} en "
+expl = (f"{M.etiqueta(e1.producto, e1.pres_key, e1.marca, e1.presentacion)}: una tienda {C.chain(e1.cadena_comercial)} en "
         f"{C.city(e1.municipio_id)} registró {C.money(e1.precio)}, {veces} la mediana de su cadena ({C.money(med)}). "
         "Se marca y se excluye; no se borra del archivo.")
 casos.append({"tipo": "Captura errónea", "producto": e1.producto, "ingenua": prod.loc[e1.producto, "ingenua"],
@@ -647,7 +647,8 @@ print(sorted(p.name for p in CHARTS.glob("*.png")), sorted(p.name for p in SOCIA
     ("md", "## 3. README y reporte HTML"),
     ("code", """gallery = [(plantillas.render(gr["titulo"], v), plantillas.render(gr["pie"], v), CHARTS / gr["archivo"]) for gr in CFG["graficas"]]
 estructura = (ROOT / "src/estructura.md").read_text(encoding="utf-8")
-(ROOT / "README.md").write_text(plantillas.readme(CFG, v, estructura), encoding="utf-8")
+import readme_md
+readme_md.write(CFG, v, ROOT)
 RP.build(CFG, v, res, prod, sob, casos, falta, sens, gallery, ROOT / "docs/index.html")
 print("README y docs/index.html escritos")"""),
     ("md", "## 4. Qué significa para el negocio"),

@@ -24,7 +24,7 @@ for c in d.columns:
 d = d[d.catalogo != "Medicamentos"]
 d["pres_key"] = np.where(d.cantidad_base.notna(), d.cantidad_base.round(4).astype(str) + " " + d.unidad_base.astype(str),
                          "texto: " + d.presentacion)
-U4 = ["producto", "pres_key", "marca", "giro"]
+U4 = ["producto", "pres_key", "presentacion", "marca", "giro"]
 
 
 def p90p10(m, key):
@@ -58,7 +58,7 @@ for nombre, calc, clave in [("ingenua", b_ing, "paso_ingenua"), ("validada", b_v
     print(f"OK  {nombre:12s} {calc:,.2f} (resultados.json {ref:,.2f})")
 
 checks = {"ingenua": f"{b_ing:.0f}%", "validada": f"{b_val:.1f}%", "desaparece": f"{desap:.0f}%",
-          "productos": f"{len(universo)}", "sobreviven": f"{RES['n_articulos']['cifra']:,.0f} artículos comparables, solo {RES['n_sobreviven']['cifra']:.0f}"}
+          "productos": f"{len(universo)}", "sobreviven": f"{RES['n_sobreviven']['cifra']:.0f} de {RES['n_articulos']['cifra']:,.0f}"}
 for name, computed in checks.items():
     assert computed in README, f"{name}: {computed} no aparece en el README"
     print(f"OK  {name:12s} {computed} aparece en el README")

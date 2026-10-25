@@ -122,7 +122,7 @@ readme:
   como_se_hizo:
     - "**Datos:** archivo de PROFECO del 16 al 31 de agosto de 2026 (extracto en Parquet, con la huella SHA-256 del original en `data/metadata/manifiesto_insumos.json`). Sin medicamentos en el resultado principal."
     - "**Comparación ingenua:** nombre de producto y promedio de todos sus registros en el municipio."
-    - "**Embudo:** misma presentación (tamaño normalizado) → misma marca → mismo giro → precio de tienda (mediana) con 3 tiendas o más por municipio → ajuste por día de captura → sin posibles errores de captura."
+    - "**Embudo:** misma presentación (tamaño normalizado) → misma marca y variedad → mismo giro → precio de tienda (mediana) con 3 tiendas o más por municipio → ajuste por día de captura → sin posibles errores de captura."
     - "**Diferencia:** brecha P90/P10 entre municipios de cada artículo (10 municipios o más); para un nombre de producto, la mediana de sus artículos. Universo fijo de {productos_universo:.0f} nombres."
     - "**Incertidumbre:** IC90 por bootstrap de municipios (500 réplicas, semilla 2026), con los mismos municipios sorteados en todos los pasos."
     - "**¿Es del municipio?** Prueba de rangos de Kruskal-Wallis por artículo con control de falsos positivos (Benjamini-Hochberg, 10%) y referencia de azar: la diferencia que da repartir al azar las mismas tiendas entre municipios (200 repartos)."
@@ -147,7 +147,7 @@ readme:
     |---|---|---|
     | 0. Comparación ingenua | {paso_ingenua:.1f}% | {paso_ingenua_inf:.1f}–{paso_ingenua_sup:.1f}% |
     | 1. Misma presentación | {paso_presentacion:.1f}% | {paso_presentacion_inf:.1f}–{paso_presentacion_sup:.1f}% |
-    | 2. Misma marca | {paso_marca:.1f}% | {paso_marca_inf:.1f}–{paso_marca_sup:.1f}% |
+    | 2. Mismo artículo (marca y variedad) | {paso_marca:.1f}% | {paso_marca_inf:.1f}–{paso_marca_sup:.1f}% |
     | 3. Mismo giro | {paso_giro:.1f}% | {paso_giro_inf:.1f}–{paso_giro_sup:.1f}% |
     | 4. 3 tiendas o más | {paso_tiendas:.1f}% | {paso_tiendas_inf:.1f}–{paso_tiendas_sup:.1f}% |
     | 5. Ajuste por día | {paso_periodo:.1f}% | {paso_periodo_inf:.1f}–{paso_periodo_sup:.1f}% |
@@ -175,6 +175,62 @@ readme:
 
     **Notebook 05 · Visualizaciones, README y reporte.**
   fuentes: []
+readme_md:
+  problema: >-
+    Un reporte dice que un producto cuesta **{paso_ingenua:.0f}% más** en otra ciudad. Antes de abrir una plaza, mover
+    precios o negociar con un proveedor, la pregunta es si esa diferencia existe o si es un efecto de cómo se comparó.
+  hallazgo: >-
+    **Al comparar el mismo artículo, la diferencia típica entre municipios baja de {paso_ingenua:.0f}% a {validada:.1f}%,
+    casi lo mismo que daría el azar ({azar:.1f}%).**
+  pasos:
+    - titulo: "1. A lo bruto, todo parece una oportunidad"
+      grafica: 02_distribucion_ingenua_validada.png
+      alt: "Distribución de la diferencia entre municipios, ingenua contra validada"
+      puntos:
+        - "Agrupando por nombre de producto, **{pct_ingenua_30:.0f}%** de los productos parece costar más de 30% más en otro municipio."
+        - "Al validar, solo **{pct_val_30:.0f}%** (▼ {delta_30:+.0f} pp)."
+    - titulo: "2. Al comparar lo mismo, la diferencia se encoge"
+      grafica: null
+      tabla: embudo
+      puntos:
+        - "La **presentación** y el **número de tiendas** hacen casi todo el trabajo."
+        - "La fecha de captura y los errores casi no cambian nada: {pct_igual_semanas:.0f}% de los precios es igual entre semanas."
+        - "Lo que queda ({validada:.1f}%) es casi el azar ({azar:.1f}%): es diferencia entre tiendas, no entre municipios."
+    - titulo: "3. Cómo nace una diferencia falsa"
+      grafica: 03_casos_artefacto.png
+      alt: "Cinco casos de diferencia ingenua que era un artefacto"
+      tabla: artefactos
+      puntos:
+        - "Caso extremo: **{art1_producto}**, {art1_ingenua:.0f}% a lo bruto. {art1_explicacion}"
+    - titulo: "4. Lo que sí sobrevive"
+      grafica: 04_casos_sobreviven.png
+      alt: "Artículos cuya diferencia entre municipios supera al azar"
+      tabla: sobreviven
+      puntos:
+        - "**{n_sobreviven:.0f} de {n_articulos:,.0f}** artículos pasan la prueba contra el azar; **{n_relevantes:.0f}** con una diferencia de 10% o más."
+        - "Sobre todo bebidas de supermercado ({rel_bebidas:.0f}) y frescos ({rel_frescos:.0f}). Ahí la misma cadena cobra distinto por plaza: ▲ {cadena_sobreviven:.0f}% contra ▲ {cadena_no_sobreviven:.1f}% en el resto."
+    - titulo: "5. Antes de decidir: lo que falta"
+      grafica: 05_que_falta.png
+      alt: "Información necesaria para evaluar una oportunidad y si está en los datos"
+      puntos:
+        - "Una diferencia que sobrevive es una **pregunta, no una oportunidad**: {falta_no:.0f} de 7 piezas de información no están en los datos públicos."
+        - "No se calcula arbitraje ni rentabilidad: no hay costos, márgenes ni volumen."
+  no_solido:
+    - "**{sob_no_relevantes:.0f} de {n_sobreviven:.0f}** artículos pasan la prueba con diferencias menores a 10% o pegadas al azar: distintos, pero no relevantes."
+    - "**Medicamentos** quedan aparte: sin laboratorio en el dato, la diferencia validada ({sens_med_validada:.1f}%) sigue mezclando productos."
+    - "**Tortillerías:** casi todas son independientes; no se puede separar cadena de lugar."
+  acciones:
+    Dirección: "No abrir plaza ni mover precios por una diferencia de reporte; pedir costo, margen y volumen de esa plaza."
+    Comercial o ventas: "Revisar bebidas y frescos: ahí hay precio por zona que conviene entender con el proveedor regional."
+    Análisis: "Comparar el mismo artículo, con 3 tiendas o más por municipio, contra el azar y con corrección por pruebas múltiples."
+  como_se_hizo:
+    - "**Datos:** PROFECO, Quién es Quién en los Precios, 16–31 ago 2026; {productos_universo:.0f} productos, sin medicamentos."
+    - "**Embudo:** presentación → marca y variedad → giro → 3 tiendas o más por municipio → día de captura → errores de captura."
+    - "**Diferencia:** brecha P90/P10 = cuánto más cuesta en el municipio caro típico que en el barato típico."
+    - "**Incertidumbre:** IC90 (rango probable) por bootstrap de municipios; prueba de rangos con control de falsos positivos y referencia de azar."
+  limitaciones:
+    - "Solo precio al consumidor en tiendas monitoreadas por PROFECO, en una quincena."
+    - "Sin costos, márgenes ni volumen; ningún resultado implica causalidad."
 reporte:
   descripcion: "Cuánto de una diferencia de precio entre municipios sobrevive al validar que se compara lo mismo, con datos de PROFECO."
   problema: >-

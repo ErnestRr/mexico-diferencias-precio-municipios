@@ -49,75 +49,75 @@
     "nota": "mayor efecto del día de captura (días con más de 1,000 registros), en %"
   },
   "pct_unidad_mun_una_tienda": {
-    "cifra": 46.5270744947767,
+    "cifra": 46.322792163353654,
     "intervalo": null,
     "n": null,
     "fuente": "00_datos_y_cobertura",
     "nota": "% de pares unidad–municipio con una sola tienda"
   },
   "posibles_errores": {
-    "cifra": 300.0,
+    "cifra": 240.0,
     "intervalo": null,
-    "n": 254987,
+    "n": 291696,
     "fuente": "00_datos_y_cobertura",
     "nota": "precio fuera de 0.5×–2× la mediana de su cadena"
   },
   "posibles_errores_nacional": {
-    "cifra": 792.0,
+    "cifra": 815.0,
     "intervalo": null,
-    "n": 254987,
+    "n": 291696,
     "fuente": "00_datos_y_cobertura",
     "nota": ""
   },
   "productos_universo": {
-    "cifra": 280.0,
+    "cifra": 279.0,
     "intervalo": null,
     "n": null,
     "fuente": "00_datos_y_cobertura",
     "nota": "nombres de producto que llegan al último paso (sin medicamentos)"
   },
   "unidades_finales": {
-    "cifra": 1072.0,
+    "cifra": 1238.0,
     "intervalo": null,
     "n": null,
     "fuente": "00_datos_y_cobertura",
     "nota": ""
   },
   "ingenua": {
-    "cifra": 25.16933594413192,
+    "cifra": 24.950019992003213,
     "intervalo": [
-      23.390182069662654,
-      28.326572351030947
+      23.316847055859025,
+      28.23167288168314
     ],
-    "n": 280,
+    "n": 279,
     "fuente": "01_comparacion_ingenua",
     "nota": "brecha P90/P10 mediana entre nombres de producto, comparación ingenua"
   },
   "pct_ingenua_30": {
-    "cifra": 43.57142857142857,
+    "cifra": 43.36917562724014,
     "intervalo": null,
-    "n": 280,
+    "n": 279,
     "fuente": "01_comparacion_ingenua",
     "nota": "% de nombres con brecha ingenua > 30%"
   },
   "pct_ingenua_50": {
-    "cifra": 20.714285714285715,
+    "cifra": 20.43010752688172,
     "intervalo": null,
-    "n": 280,
+    "n": 279,
     "fuente": "01_comparacion_ingenua",
     "nota": ""
   },
   "ingenua_promedio": {
-    "cifra": 43.75075211452,
+    "cifra": 43.65898539309217,
     "intervalo": null,
-    "n": 280,
+    "n": 279,
     "fuente": "01_comparacion_ingenua",
     "nota": ""
   },
   "rho_articulos": {
-    "cifra": 0.10248077931107759,
+    "cifra": 0.10693659921117829,
     "intervalo": null,
-    "n": 280,
+    "n": 279,
     "fuente": "01_comparacion_ingenua",
     "nota": "Spearman entre brecha ingenua y número de artículos del nombre"
   },
@@ -129,260 +129,260 @@
     "nota": ""
   },
   "paso_ingenua": {
-    "cifra": 25.16933594413192,
+    "cifra": 24.950019992003213,
     "intervalo": [
-      23.390182069662654,
-      28.326572351030947
+      23.316847055859025,
+      28.23167288168314
     ],
-    "n": 280,
+    "n": 279,
     "fuente": "02_embudo_de_comparabilidad",
     "nota": "brecha mediana tras: Comparación ingenua"
   },
   "unidades_ingenua": {
-    "cifra": 280.0,
+    "cifra": 279.0,
     "intervalo": null,
     "n": null,
     "fuente": "02_embudo_de_comparabilidad",
     "nota": ""
   },
   "paso_presentacion": {
-    "cifra": 20.580934964266106,
+    "cifra": 20.447230221921032,
     "intervalo": [
-      18.20806490040608,
-      21.116243061718244
+      18.106151144222334,
+      21.068507786582398
     ],
-    "n": 280,
+    "n": 279,
     "fuente": "02_embudo_de_comparabilidad",
     "nota": "brecha mediana tras: Misma presentación"
   },
   "unidades_presentacion": {
-    "cifra": 1304.0,
+    "cifra": 1303.0,
     "intervalo": null,
     "n": null,
     "fuente": "02_embudo_de_comparabilidad",
     "nota": ""
   },
   "paso_marca": {
-    "cifra": 17.74220859716619,
+    "cifra": 17.727305976153886,
     "intervalo": [
-      16.600857232760358,
-      18.931702215487693
+      16.40457232910817,
+      18.772322562474802
     ],
-    "n": 280,
+    "n": 279,
     "fuente": "02_embudo_de_comparabilidad",
-    "nota": "brecha mediana tras: Misma marca"
+    "nota": "brecha mediana tras: Mismo artículo"
   },
   "unidades_marca": {
-    "cifra": 1824.0,
+    "cifra": 2144.0,
     "intervalo": null,
     "n": null,
     "fuente": "02_embudo_de_comparabilidad",
     "nota": ""
   },
   "paso_giro": {
-    "cifra": 17.18439647393819,
+    "cifra": 16.995442907882218,
     "intervalo": [
-      15.83813756825689,
-      18.201639968224463
+      15.424924042744143,
+      17.83406794059572
     ],
-    "n": 280,
+    "n": 279,
     "fuente": "02_embudo_de_comparabilidad",
     "nota": "brecha mediana tras: Mismo giro"
   },
   "unidades_giro": {
-    "cifra": 2726.0,
+    "cifra": 3097.0,
     "intervalo": null,
     "n": null,
     "fuente": "02_embudo_de_comparabilidad",
     "nota": ""
   },
   "paso_tiendas": {
-    "cifra": 12.084287700309037,
+    "cifra": 11.597866548141567,
     "intervalo": [
-      10.932873684173678,
-      13.313708710821354
+      10.37961180680469,
+      12.820033895938701
     ],
-    "n": 280,
+    "n": 279,
     "fuente": "02_embudo_de_comparabilidad",
     "nota": "brecha mediana tras: 3 tiendas o más"
   },
   "unidades_tiendas": {
-    "cifra": 1072.0,
+    "cifra": 1238.0,
     "intervalo": null,
     "n": null,
     "fuente": "02_embudo_de_comparabilidad",
     "nota": ""
   },
   "paso_periodo": {
-    "cifra": 12.157328871039624,
+    "cifra": 11.72663616820433,
     "intervalo": [
-      10.957406813104603,
-      13.332439242237342
+      10.383525981202714,
+      12.789167215301402
     ],
-    "n": 280,
+    "n": 279,
     "fuente": "02_embudo_de_comparabilidad",
     "nota": "brecha mediana tras: Mismo periodo"
   },
   "unidades_periodo": {
-    "cifra": 1072.0,
+    "cifra": 1238.0,
     "intervalo": null,
     "n": null,
     "fuente": "02_embudo_de_comparabilidad",
     "nota": ""
   },
   "paso_extremos": {
-    "cifra": 12.157328871039624,
+    "cifra": 11.668234496096597,
     "intervalo": [
-      10.957406813104603,
-      13.332439242237342
+      10.383525981202714,
+      12.737863000998123
     ],
-    "n": 280,
+    "n": 279,
     "fuente": "02_embudo_de_comparabilidad",
     "nota": "brecha mediana tras: Sin errores de captura"
   },
   "unidades_extremos": {
-    "cifra": 1072.0,
+    "cifra": 1238.0,
     "intervalo": null,
     "n": null,
     "fuente": "02_embudo_de_comparabilidad",
     "nota": ""
   },
   "desaparece_pct": {
-    "cifra": 51.69785608160221,
+    "cifra": 53.23356654689492,
     "intervalo": [
-      47.4009863981724,
-      58.83969648201523
+      49.03035020517725,
+      60.11864193675174
     ],
-    "n": 280,
+    "n": 279,
     "fuente": "02_embudo_de_comparabilidad",
     "nota": "% de la brecha ingenua que desaparece al validar"
   },
   "validada": {
-    "cifra": 12.157328871039624,
+    "cifra": 11.668234496096597,
     "intervalo": [
-      10.957406813104603,
-      13.332439242237342
+      10.383525981202714,
+      12.737863000998123
     ],
-    "n": 280,
+    "n": 279,
     "fuente": "02_embudo_de_comparabilidad",
     "nota": ""
   },
   "validada_promedio": {
-    "cifra": 15.442164379914876,
+    "cifra": 14.803419673579354,
     "intervalo": null,
     "n": null,
     "fuente": "02_embudo_de_comparabilidad",
     "nota": ""
   },
   "azar": {
-    "cifra": 11.500737866322003,
+    "cifra": 10.923471038040233,
     "intervalo": null,
-    "n": 280,
+    "n": 279,
     "fuente": "02_embudo_de_comparabilidad",
     "nota": "brecha mediana si las tiendas se repartieran al azar entre municipios"
   },
   "exceso_pp": {
-    "cifra": 0.2435172445255427,
+    "cifra": 0.22479484673282712,
     "intervalo": null,
-    "n": 280,
+    "n": 279,
     "fuente": "02_embudo_de_comparabilidad",
     "nota": "puntos de brecha validada por encima del azar (mediana por nombre de producto)"
   },
   "pct_productos_sobre_p95": {
-    "cifra": 10.0,
+    "cifra": 8.60215053763441,
     "intervalo": null,
-    "n": 280,
+    "n": 279,
     "fuente": "02_embudo_de_comparabilidad",
     "nota": ""
   },
   "desaparece_azar_pct": {
-    "cifra": 99.03248442840894,
+    "cifra": 99.09901937230961,
     "intervalo": null,
-    "n": 280,
+    "n": 279,
     "fuente": "02_embudo_de_comparabilidad",
     "nota": "% de la brecha ingenua que no es comparable o no supera al azar"
   },
   "sola_presentacion": {
-    "cifra": 20.580934964266106,
+    "cifra": 20.447230221921032,
     "intervalo": null,
-    "n": 280,
+    "n": 279,
     "fuente": "02_embudo_de_comparabilidad",
     "nota": ""
   },
   "sola_marca": {
-    "cifra": 21.73164883876979,
+    "cifra": 21.7176044513127,
     "intervalo": null,
-    "n": 280,
+    "n": 279,
     "fuente": "02_embudo_de_comparabilidad",
     "nota": ""
   },
   "sola_giro": {
-    "cifra": 37.51698560559423,
+    "cifra": 37.50361476854576,
     "intervalo": null,
-    "n": 280,
+    "n": 279,
     "fuente": "02_embudo_de_comparabilidad",
     "nota": ""
   },
   "sola_tiendas": {
-    "cifra": 25.805475595853025,
+    "cifra": 25.698324022346377,
     "intervalo": null,
-    "n": 280,
+    "n": 279,
     "fuente": "02_embudo_de_comparabilidad",
     "nota": ""
   },
   "sens_t2_ingenua": {
-    "cifra": 26.345710720075143,
+    "cifra": 26.24277258584682,
     "intervalo": null,
-    "n": 311,
+    "n": 308,
     "fuente": "02_embudo_de_comparabilidad",
     "nota": ""
   },
   "sens_t2_validada": {
-    "cifra": 14.42196558040707,
+    "cifra": 13.874556495439737,
     "intervalo": null,
-    "n": 311,
+    "n": 308,
     "fuente": "02_embudo_de_comparabilidad",
     "nota": ""
   },
   "sens_t5_ingenua": {
-    "cifra": 23.01468038377068,
+    "cifra": 22.742556605447604,
     "intervalo": null,
-    "n": 181,
+    "n": 176,
     "fuente": "02_embudo_de_comparabilidad",
     "nota": ""
   },
   "sens_t5_validada": {
-    "cifra": 9.73456775621927,
+    "cifra": 8.269031690540103,
     "intervalo": null,
-    "n": 181,
+    "n": 176,
     "fuente": "02_embudo_de_comparabilidad",
     "nota": ""
   },
   "sens_sem1_ingenua": {
-    "cifra": 26.167835881476996,
+    "cifra": 26.094317322742434,
     "intervalo": null,
-    "n": 248,
+    "n": 247,
     "fuente": "02_embudo_de_comparabilidad",
     "nota": ""
   },
   "sens_sem1_validada": {
-    "cifra": 13.346310898078599,
+    "cifra": 12.777680073272846,
     "intervalo": null,
-    "n": 248,
+    "n": 247,
     "fuente": "02_embudo_de_comparabilidad",
     "nota": ""
   },
   "sens_sem2_ingenua": {
-    "cifra": 27.45806343428012,
+    "cifra": 27.384982121573298,
     "intervalo": null,
-    "n": 260,
+    "n": 259,
     "fuente": "02_embudo_de_comparabilidad",
     "nota": ""
   },
   "sens_sem2_validada": {
-    "cifra": 12.278758820562636,
+    "cifra": 11.804201483230514,
     "intervalo": null,
-    "n": 260,
+    "n": 259,
     "fuente": "02_embudo_de_comparabilidad",
     "nota": ""
   },
@@ -394,147 +394,147 @@
     "nota": ""
   },
   "sens_med_validada": {
-    "cifra": 16.244473952179625,
+    "cifra": 16.285968919136874,
     "intervalo": null,
     "n": 355,
     "fuente": "02_embudo_de_comparabilidad",
     "nota": ""
   },
   "sens_todos_validada": {
-    "cifra": 12.157328871039624,
+    "cifra": 11.72663616820433,
     "intervalo": null,
     "n": null,
     "fuente": "02_embudo_de_comparabilidad",
     "nota": ""
   },
   "n_articulos": {
-    "cifra": 1072.0,
+    "cifra": 1238.0,
     "intervalo": null,
     "n": null,
     "fuente": "03_diferencias_que_sobreviven",
     "nota": ""
   },
   "n_sobreviven": {
-    "cifra": 41.0,
+    "cifra": 45.0,
     "intervalo": null,
-    "n": 1072,
+    "n": 1238,
     "fuente": "03_diferencias_que_sobreviven",
     "nota": "artículos con diferencia entre municipios tras Benjamini-Hochberg 10%"
   },
   "pct_sobreviven": {
-    "cifra": 3.824626865671642,
+    "cifra": 3.634894991922456,
     "intervalo": null,
-    "n": 1072,
+    "n": 1238,
     "fuente": "03_diferencias_que_sobreviven",
     "nota": ""
   },
   "n_p05": {
-    "cifra": 122.0,
+    "cifra": 138.0,
     "intervalo": null,
-    "n": 1072,
+    "n": 1238,
     "fuente": "03_diferencias_que_sobreviven",
     "nota": ""
   },
   "esperados_azar_p05": {
-    "cifra": 53.6,
+    "cifra": 61.900000000000006,
     "intervalo": null,
     "n": null,
     "fuente": "03_diferencias_que_sobreviven",
     "nota": ""
   },
   "sob_bebidas": {
-    "cifra": 21.0,
+    "cifra": 22.0,
     "intervalo": null,
-    "n": 77,
+    "n": 80,
     "fuente": "03_diferencias_que_sobreviven",
     "nota": ""
   },
   "pct_sob_bebidas": {
-    "cifra": 27.27272727272727,
+    "cifra": 27.500000000000004,
     "intervalo": null,
-    "n": 77,
+    "n": 80,
     "fuente": "03_diferencias_que_sobreviven",
     "nota": ""
   },
   "sob_frescos": {
-    "cifra": 7.0,
+    "cifra": 12.0,
     "intervalo": null,
-    "n": 85,
+    "n": 138,
     "fuente": "03_diferencias_que_sobreviven",
     "nota": ""
   },
   "pct_sob_frescos": {
-    "cifra": 8.235294117647058,
+    "cifra": 8.695652173913043,
     "intervalo": null,
-    "n": 85,
+    "n": 138,
     "fuente": "03_diferencias_que_sobreviven",
     "nota": ""
   },
   "sob_otros": {
-    "cifra": 11.0,
+    "cifra": 9.0,
     "intervalo": null,
-    "n": 906,
+    "n": 1015,
     "fuente": "03_diferencias_que_sobreviven",
     "nota": ""
   },
   "pct_sob_otros": {
-    "cifra": 1.2141280353200883,
+    "cifra": 0.8866995073891626,
     "intervalo": null,
-    "n": 906,
+    "n": 1015,
     "fuente": "03_diferencias_que_sobreviven",
     "nota": ""
   },
   "sob_tortilla": {
     "cifra": 2.0,
     "intervalo": null,
-    "n": 4,
+    "n": 5,
     "fuente": "03_diferencias_que_sobreviven",
     "nota": ""
   },
   "pct_sob_tortilla": {
-    "cifra": 50.0,
+    "cifra": 40.0,
     "intervalo": null,
-    "n": 4,
+    "n": 5,
     "fuente": "03_diferencias_que_sobreviven",
     "nota": ""
   },
   "brecha_sobreviven": {
-    "cifra": 23.22689575415304,
+    "cifra": 23.23934945367934,
     "intervalo": null,
     "n": null,
     "fuente": "03_diferencias_que_sobreviven",
     "nota": ""
   },
   "brecha_no_sobreviven": {
-    "cifra": 10.649578100249958,
+    "cifra": 10.013293275682788,
     "intervalo": null,
     "n": null,
     "fuente": "03_diferencias_que_sobreviven",
     "nota": ""
   },
   "cadena_sobreviven": {
-    "cifra": 12.94795654088663,
+    "cifra": 13.339378585111849,
     "intervalo": null,
     "n": null,
     "fuente": "03_diferencias_que_sobreviven",
     "nota": "brecha entre municipios de la misma cadena, artículos que sobreviven"
   },
   "cadena_no_sobreviven": {
-    "cifra": 1.52249018126267,
+    "cifra": 1.2662470638682644,
     "intervalo": null,
     "n": null,
     "fuente": "03_diferencias_que_sobreviven",
     "nota": ""
   },
   "n_relevantes": {
-    "cifra": 20.0,
+    "cifra": 21.0,
     "intervalo": null,
-    "n": 41,
+    "n": 45,
     "fuente": "03_diferencias_que_sobreviven",
     "nota": "sobreviven, brecha >= 10% e IC90 inferior arriba de la mediana del azar"
   },
   "rel_bebidas": {
-    "cifra": 9.0,
+    "cifra": 10.0,
     "intervalo": null,
     "n": null,
     "fuente": "03_diferencias_que_sobreviven",
@@ -548,30 +548,30 @@
     "nota": ""
   },
   "rel_frescos": {
-    "cifra": 5.0,
+    "cifra": 6.0,
     "intervalo": null,
     "n": null,
     "fuente": "03_diferencias_que_sobreviven",
     "nota": ""
   },
   "rel_otros": {
-    "cifra": 4.0,
+    "cifra": 3.0,
     "intervalo": null,
     "n": null,
     "fuente": "03_diferencias_que_sobreviven",
     "nota": ""
   },
   "brecha_relevantes": {
-    "cifra": 26.251926912098824,
+    "cifra": 26.4002783563162,
     "intervalo": null,
-    "n": 20,
+    "n": 21,
     "fuente": "03_diferencias_que_sobreviven",
     "nota": ""
   },
   "cadena_relevantes": {
-    "cifra": 18.643635659158775,
+    "cifra": 18.951814886483696,
     "intervalo": null,
-    "n": 20,
+    "n": 21,
     "fuente": "03_diferencias_que_sobreviven",
     "nota": ""
   },
@@ -586,7 +586,7 @@
     "nota": "Tortilla de Maíz · 1.0 kg · S/M · tortillerías"
   },
   "caso_tortilla_nombre": {
-    "cifra": "Tortilla de Maíz 1 kg en tortillerías",
+    "cifra": "Tortilla de Maíz (1 kg, granel) en tortillerías",
     "intervalo": null,
     "n": null,
     "fuente": "03_diferencias_que_sobreviven",
@@ -614,7 +614,7 @@
     "nota": ""
   },
   "caso_tortilla_azar": {
-    "cifra": 18.00078264008168,
+    "cifra": 18.087887176732032,
     "intervalo": null,
     "n": null,
     "fuente": "03_diferencias_que_sobreviven",
@@ -652,7 +652,7 @@
     "nota": "Refresco · 0.6 l · Coca Cola. Zero · supermercados"
   },
   "caso_bebida_nombre": {
-    "cifra": "Refresco Coca Cola Zero 600 ml en supermercados",
+    "cifra": "Refresco Coca Cola Zero (botella 600 ml) en supermercados",
     "intervalo": null,
     "n": null,
     "fuente": "03_diferencias_que_sobreviven",
@@ -680,7 +680,7 @@
     "nota": ""
   },
   "caso_bebida_azar": {
-    "cifra": 18.61230681166639,
+    "cifra": 19.203789277540096,
     "intervalo": null,
     "n": null,
     "fuente": "03_diferencias_que_sobreviven",
@@ -746,7 +746,7 @@
     "nota": ""
   },
   "caso_fresco_azar": {
-    "cifra": 34.2228506166677,
+    "cifra": 33.890557339549986,
     "intervalo": null,
     "n": null,
     "fuente": "03_diferencias_que_sobreviven",
@@ -774,14 +774,14 @@
     "nota": "Benito Juárez (Ciudad de México)"
   },
   "sob_no_relevantes": {
-    "cifra": 21.0,
+    "cifra": 24.0,
     "intervalo": null,
-    "n": 41,
+    "n": 45,
     "fuente": "03_diferencias_que_sobreviven",
     "nota": "sobreviven a la prueba pero con brecha < 10% o IC90 que toca la mediana del azar"
   },
   "p05_no_sobreviven": {
-    "cifra": 81.0,
+    "cifra": 93.0,
     "intervalo": null,
     "n": null,
     "fuente": "03_diferencias_que_sobreviven",
@@ -914,84 +914,84 @@
     "nota": ""
   },
   "art4_ingenua": {
-    "cifra": 100.56144519588135,
+    "cifra": 42.78544753119993,
     "intervalo": null,
     "n": null,
     "fuente": "04_artefactos_y_lo_que_falta",
-    "nota": "Una sola tienda: Planchas"
+    "nota": "Una sola tienda: Basa"
   },
   "art4_validada": {
-    "cifra": 5.148010581692741,
+    "cifra": 31.79024426433852,
     "intervalo": null,
     "n": null,
     "fuente": "04_artefactos_y_lo_que_falta",
-    "nota": "Una sola tienda: Planchas"
+    "nota": "Una sola tienda: Basa"
   },
   "art4_antes": {
-    "cifra": 59.63060686015831,
+    "cifra": 71.26436781609196,
     "intervalo": null,
     "n": null,
     "fuente": "04_artefactos_y_lo_que_falta",
     "nota": ""
   },
   "art4_despues": {
-    "cifra": 5.277044854881274,
+    "cifra": 3.166666666666673,
     "intervalo": null,
     "n": null,
     "fuente": "04_artefactos_y_lo_que_falta",
     "nota": ""
   },
   "art4_producto": {
-    "cifra": "Planchas",
+    "cifra": "Basa",
     "intervalo": null,
     "n": null,
     "fuente": "04_artefactos_y_lo_que_falta",
     "nota": ""
   },
   "art4_explicacion": {
-    "cifra": "Planchas Oster: en Campeche el «precio del municipio» era el de una sola tienda (Hipermercado Soriana, $619, contra $391 en el municipio típico); con 3 tiendas o más, la diferencia del artículo baja de 60% a 5%.",
+    "cifra": "Basa: en Puebla el «precio del municipio» era el de una sola tienda (City Market, $179, contra $103 en el municipio típico); con 3 tiendas o más, la diferencia del artículo baja de 71% a 3%.",
     "intervalo": null,
     "n": null,
     "fuente": "04_artefactos_y_lo_que_falta",
     "nota": ""
   },
   "art5_ingenua": {
-    "cifra": 51.01716899221398,
+    "cifra": 49.73402965695146,
     "intervalo": null,
     "n": null,
     "fuente": "04_artefactos_y_lo_que_falta",
-    "nota": "Captura errónea: Chile Fresco"
+    "nota": "Captura errónea: Carne Pollo"
   },
   "art5_validada": {
-    "cifra": 22.086544696843347,
+    "cifra": 7.238177179025707,
     "intervalo": null,
     "n": null,
     "fuente": "04_artefactos_y_lo_que_falta",
-    "nota": "Captura errónea: Chile Fresco"
+    "nota": "Captura errónea: Carne Pollo"
   },
   "art5_antes": {
-    "cifra": 41.42749961688486,
+    "cifra": 7.238177179025707,
     "intervalo": null,
     "n": null,
     "fuente": "04_artefactos_y_lo_que_falta",
     "nota": ""
   },
   "art5_despues": {
-    "cifra": 22.086544696843347,
+    "cifra": 7.238177179025707,
     "intervalo": null,
     "n": null,
     "fuente": "04_artefactos_y_lo_que_falta",
     "nota": ""
   },
   "art5_producto": {
-    "cifra": "Chile Fresco",
+    "cifra": "Carne Pollo",
     "intervalo": null,
     "n": null,
     "fuente": "04_artefactos_y_lo_que_falta",
     "nota": ""
   },
   "art5_explicacion": {
-    "cifra": "Chile Fresco 1 kg: una tienda Fresko la Comer en Cuernavaca registró $5.70, 8 veces menos que la mediana de su cadena ($43.85). Se marca y se excluye; no se borra del archivo.",
+    "cifra": "Carne Pollo (1 kg, granel, muslo (con piel)): una tienda Walmart en Juárez registró $30, 3 veces menos que la mediana de su cadena ($104). Se marca y se excluye; no se borra del archivo.",
     "intervalo": null,
     "n": null,
     "fuente": "04_artefactos_y_lo_que_falta",

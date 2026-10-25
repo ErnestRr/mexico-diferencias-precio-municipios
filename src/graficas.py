@@ -19,7 +19,7 @@ SRC_E = C.SRC + ". Sin medicamentos; tiendas monitoreadas por PROFECO."
 BAR = C.SLATE
 ING = C.SAND
 SUB = {"ingenua": "nombre del producto y promedio simple", "presentacion": "mismo tamaño y unidad (kg, litro, pieza)",
-       "marca": "misma marca: el mismo artículo", "giro": "súper con súper, mercado con mercado",
+       "marca": "misma marca y variedad", "giro": "súper con súper, mercado con mercado",
        "tiendas": "precio de tienda y 3 o más por municipio", "periodo": "ajuste por el día de captura",
        "extremos": "fuera de 0.5×–2× de su propia cadena"}
 
@@ -217,7 +217,7 @@ def artefactos(casos, path):
 
 # --------------------------------------------------------------------------- 04 sobrevivientes
 def sobrevivientes(sob, casos, v, path, k=12):
-    s = pd.concat([casos, sob]).drop_duplicates(["producto", "pres_key", "marca", "giro"]).head(k).reset_index(drop=True)
+    s = pd.concat([casos, sob]).drop_duplicates(["producto", "pres_key", "presentacion", "marca", "giro"]).head(k).reset_index(drop=True)
     fig = _canvas(2000, 1500)
     L = 0.33
     ax = fig.add_axes([L, 0.10, 0.45, 0.66])

@@ -6,108 +6,176 @@
 
 **[Ver el reporte interactivo](https://ernestrr.github.io/mexico-diferencias-precio-municipios/)**: la historia en cinco pasos, el embudo de comparabilidad y un selector para revisar cada producto.
 
-## El hallazgo principal
+## El problema
 
-**Al comparar el mismo artículo, la diferencia típica de precio entre municipios baja de 25% a 12.2% (IC90 11.0–13.3%), y ese 12.2% es casi lo mismo que daría repartir al azar las mismas tiendas entre los municipios (11.5%).** A lo bruto, agrupando por nombre de producto y con promedios, el producto típico parece costar 25% más en el municipio caro típico que en el barato típico. Al exigir la misma presentación, marca y giro, y al menos 3 tiendas por municipio, desaparece 52% de esa diferencia (IC90 47–59%). Lo que queda es, sobre todo, diferencia entre tiendas y no entre municipios: en el producto típico, la parte propia del municipio es de 0.2 puntos.
+Un reporte dice que un producto cuesta **25% más** en otra ciudad. Antes de abrir una plaza, mover precios o negociar con un proveedor, la pregunta es si esa diferencia existe o si es un efecto de cómo se comparó.
+
+## El hallazgo
+
+**Al comparar el mismo artículo, la diferencia típica entre municipios baja de 25% a 11.7%, casi lo mismo que daría el azar (10.9%).**
 
 ![Embudo de comparabilidad: diferencia entre municipios en cada paso de validación](outputs/charts/01_embudo_comparabilidad.png)
 
-Brecha P90/P10 = cuánto más cuesta un producto en el municipio caro típico que en el barato típico. Se mide en los mismos 280 nombres de producto en cada paso (sin medicamentos). IC90 = rango probable.
+| Indicador | Cifra |
+|---|---|
+| Diferencia típica a lo bruto | **25%** |
+| Al comparar el mismo artículo | **11.7%** (▼ −13.3 pp) |
+| Lo que daría el azar con las mismas tiendas | 10.9% |
+| Parte de la diferencia ingenua que desaparece | ▼ 53% |
+| Artículos con diferencia relevante | 21 de 1,238 |
 
-## Tres hallazgos de apoyo
+*Brecha P90/P10 = cuánto más cuesta un producto en el municipio caro típico que en el barato típico. IC90 = rango probable. ▼ baja · ▲ sube.*
 
-1. **Dos validaciones hacen casi todo el trabajo: la presentación y el número de tiendas.** Exigir la misma presentación baja la diferencia de 25.2% a 20.6%; exigir 3 tiendas o más por municipio, de 17.2% a 12.1%. En 47% de los cruces artículo–municipio, «el precio del municipio» es el de una sola tienda. El caso extremo es «Almendras»: a lo bruto, una diferencia de 538%. En Monterrey el promedio es $232 y 67% de los registros son 1 kg; en Lerma es $36.50 y 100% son 75 g. Con la misma presentación, 19%. Ninguna validación sola basta: exigir 3 tiendas sin definir antes el artículo casi no cambia la diferencia (25.8%).
-2. **De 1,072 artículos comparables, solo 41 tienen una diferencia entre municipios que supera la prueba, y 20 son relevantes** (10% o más y claramente arriba del azar): 9 bebidas de supermercado, 5 frescos, 2 de tortilla y 4 de otros productos. Ejemplos: Tortilla de Maíz 1 kg en tortillerías, 29.96 pesos en Benito Juárez (Quintana Roo) contra 20.50 en Iztapalapa (diferencia 47%, IC90 36–50%); Refresco Coca Cola Zero 600 ml en supermercados, 27% (IC90 20–35%). En los artículos que sobreviven, la misma cadena cobra 13% más en el municipio caro típico; en los demás, 1.5%.
-3. **El resultado no depende de los criterios.** Con 2 tiendas por municipio la diferencia validada es 14.4% y con 5, 9.7%; con solo la primera semana, 13.3%, y con solo la segunda, 12.3%. La fecha de captura casi no importa: 81% de los precios de la misma tienda y artículo no cambia entre semanas y el efecto del día es de 0.4% como máximo.
+## 1. A lo bruto, todo parece una oportunidad
 
-**Lo que no resultó sólido.** 21 de los 41 artículos que pasan la prueba tienen diferencias menores a 10% o un rango probable que toca lo típico del azar: son estadísticamente distintos, pero no relevantes para una decisión. Otros 81 artículos parecerían distintos con una prueba sin corrección (con más de mil pruebas, unos 54 saldrían así solo por azar). En tortillerías, «misma cadena» no aplica: casi todas son negocios independientes, así que su diferencia no se puede separar entre cadena y lugar. Los medicamentos quedan fuera: sin laboratorio en el dato, la diferencia validada (16.2%) sigue mezclando productos distintos.
+![Distribución de la diferencia entre municipios, ingenua contra validada](outputs/charts/02_distribucion_ingenua_validada.png)
 
-## Qué significa para el negocio y qué hacer
+- Agrupando por nombre de producto, **43%** de los productos parece costar más de 30% más en otro municipio.
+- Al validar, solo **10%** (▼ −34 pp).
+
+## 2. Al comparar lo mismo, la diferencia se encoge
+
+| Paso | Diferencia típica | Cambio |
+|---|---|---|
+| 0. Comparación ingenua | **25.0%** | — |
+| 1. Misma presentación | **20.4%** | ▼ −4.5 pp |
+| 2. Mismo artículo | **17.7%** | ▼ −2.7 pp |
+| 3. Mismo giro | **17.0%** | ▼ −0.7 pp |
+| 4. 3 tiendas o más | **11.6%** | ▼ −5.4 pp |
+| 5. Mismo periodo | **11.7%** | ▲ +0.1 pp |
+| 6. Sin errores de captura | **11.7%** | ▼ −0.1 pp |
+| Referencia: azar | 10.9% |  |
+
+- La **presentación** y el **número de tiendas** hacen casi todo el trabajo.
+- La fecha de captura y los errores casi no cambian nada: 81% de los precios es igual entre semanas.
+- Lo que queda (11.7%) es casi el azar (10.9%): es diferencia entre tiendas, no entre municipios.
+
+## 3. Cómo nace una diferencia falsa
+
+![Cinco casos de diferencia ingenua que era un artefacto](outputs/charts/03_casos_artefacto.png)
+
+| Qué lo producía | Producto | Antes | Después | Cambio |
+|---|---|---|---|---|
+| Presentación distinta | Almendras | 538% | 19% | ▼ −519 pp |
+| Otra marca | Ajonjolí | 41% | 5% | ▼ −36 pp |
+| Otro giro | Cinta Adhesiva | 56% | 29% | ▼ −26 pp |
+| Una sola tienda | Basa | 71% | 3% | ▼ −68 pp |
+| Captura errónea | Carne Pollo | 7% | 7% | = 0.0 pp |
+
+- Caso extremo: **Almendras**, 538% a lo bruto. En Monterrey el promedio es \$232 y 67% de los registros son 1 kg; en Lerma es \$36.50 y 100% son 75 g.
+
+## 4. Lo que sí sobrevive
+
+![Artículos cuya diferencia entre municipios supera al azar](outputs/charts/04_casos_sobreviven.png)
+
+| Artículo | Giro | Diferencia | IC90 | Barato → caro típico |
+|---|---|---|---|---|
+| Tortilla de Maíz (1 kg, granel) | tortillería | ▲ 47% | 36–50% | Iztapalapa \$20.50 → Benito Juárez (Quintana Roo) \$29.96 |
+| Refresco Coca Cola Zero (botella 600 ml) | supermercado | ▲ 27% | 20–35% | Miguel Hidalgo \$16.49 → San Luis Potosí \$20.99 |
+| Refresco Fresca (botella 3 lt, no retornable) | supermercado | ▲ 26% | 17–32% | Benito Juárez (Ciudad de México) \$41.96 → Culiacán \$53.04 |
+| Refresco Sprite (botella 3 lt, no retornable) | supermercado | ▲ 23% | 8–30% | Benito Juárez (Ciudad de México) \$41.97 → Hermosillo \$51.17 |
+| Cerveza Tecate (paquete con 12 latas de 355 ml) | supermercado | ▲ 26% | 15–34% | La Paz \$173 → Tlalnepantla \$219 |
+| Refresco Jarritos (botella 2 lt, no retornable, tamarindo) | supermercado | ▲ 20% | 16–21% | Venustiano Carranza \$24.90 → Guadalajara \$29.96 |
+| Cerveza Bohemia Pilsner (canasta con 6 botellas de 355 ml, no retornab…) | supermercado | ▲ 16% | 16–19% | Naucalpan de Juárez \$129 → Tampico \$150 |
+| Cerveza Indio (paquete con 12 latas de 355 ml) | supermercado | ▲ 34% | 25–42% | Hermosillo \$163 → Iztapalapa \$219 |
+
+- **45 de 1,238** artículos pasan la prueba contra el azar; **21** con una diferencia de 10% o más.
+- Sobre todo bebidas de supermercado (10) y frescos (6). Ahí la misma cadena cobra distinto por plaza: ▲ 13% contra ▲ 1.3% en el resto.
+
+## 5. Antes de decidir: lo que falta
+
+![Información necesaria para evaluar una oportunidad y si está en los datos](outputs/charts/05_que_falta.png)
+
+- Una diferencia que sobrevive es una **pregunta, no una oportunidad**: 5 de 7 piezas de información no están en los datos públicos.
+- No se calcula arbitraje ni rentabilidad: no hay costos, márgenes ni volumen.
+
+## Lo que no resultó sólido
+
+- **24 de 45** artículos pasan la prueba con diferencias menores a 10% o pegadas al azar: distintos, pero no relevantes.
+- **Medicamentos** quedan aparte: sin laboratorio en el dato, la diferencia validada (16.3%) sigue mezclando productos.
+- **Tortillerías:** casi todas son independientes; no se puede separar cadena de lugar.
+
+## Qué hacer con esto
 
 Aplica a las tiendas que monitorea PROFECO y solo al precio al consumidor. **No es una recomendación de inversión ni un cálculo de arbitraje o rentabilidad**: no hay costos, márgenes ni volumen en los datos.
 
-**Director o dueño de cadena**
-- **No abra una plaza ni mueva precios por una diferencia de un reporte.** A lo bruto, 44% de los productos parece costar más de 30% más en otro municipio; al comparar lo mismo, la diferencia típica es 12.2%, casi lo que daría el azar.
-- **Pida las cinco preguntas antes de decidir:** ¿es el mismo artículo?, ¿cuántas tiendas hay detrás?, ¿supera al azar?, ¿la misma cadena cobra distinto?, ¿persiste en otra quincena?
-- **Si una diferencia sobrevive, es para investigar con datos propios:** costo puesto en tienda, margen y volumen de esa plaza. Sin eso no hay caso de negocio.
+| Para | Acción |
+|---|---|
+| **Dirección** | No abrir plaza ni mover precios por una diferencia de reporte; pedir costo, margen y volumen de esa plaza. |
+| **Comercial o ventas** | Revisar bebidas y frescos: ahí hay precio por zona que conviene entender con el proveedor regional. |
+| **Análisis** | Comparar el mismo artículo, con 3 tiendas o más por municipio, contra el azar y con corrección por pruebas múltiples. |
 
-**Equipo comercial o de ventas**
-- **Mire las bebidas y los frescos.** Es donde sobreviven las diferencias (9 bebidas y 5 frescos relevantes) y donde la misma cadena cobra distinto por plaza: ahí hay precio por zona que conviene entender con el embotellador o el proveedor regional.
-- **Compare el mismo artículo:** la presentación y la marca explican buena parte de las diferencias falsas. Una lista de precios por nombre genérico engaña.
+## Cómo se hizo
 
-**Analista**
-- **Valide en este orden:** presentación, marca, giro, tiendas por municipio, fecha y errores. Exija 3 tiendas o más por municipio: con una sola, el municipio es esa tienda.
-- **Compare contra el azar y corrija por pruebas múltiples.** Con más de mil artículos, unos 54 parecerían distintos solo por azar.
-- **Siguiente paso, sin mezclarlo con PROFECO:** número de establecimientos por municipio (INEGI, DENUE), población (Censo de Población y Vivienda) y gasto de los hogares (ENIGH), para dimensionar las plazas donde la diferencia sobrevive.
-
-## Cómo se hizo (breve)
-
-- **Datos:** archivo de PROFECO del 16 al 31 de agosto de 2026 (extracto en Parquet, con la huella SHA-256 del original en `data/metadata/manifiesto_insumos.json`). Sin medicamentos en el resultado principal.
-- **Comparación ingenua:** nombre de producto y promedio de todos sus registros en el municipio.
-- **Embudo:** misma presentación (tamaño normalizado) → misma marca → mismo giro → precio de tienda (mediana) con 3 tiendas o más por municipio → ajuste por día de captura → sin posibles errores de captura.
-- **Diferencia:** brecha P90/P10 entre municipios de cada artículo (10 municipios o más); para un nombre de producto, la mediana de sus artículos. Universo fijo de 280 nombres.
-- **Incertidumbre:** IC90 por bootstrap de municipios (500 réplicas, semilla 2026), con los mismos municipios sorteados en todos los pasos.
-- **¿Es del municipio?** Prueba de rangos de Kruskal-Wallis por artículo con control de falsos positivos (Benjamini-Hochberg, 10%) y referencia de azar: la diferencia que da repartir al azar las mismas tiendas entre municipios (200 repartos).
+- **Datos:** PROFECO, Quién es Quién en los Precios, 16–31 ago 2026; 279 productos, sin medicamentos.
+- **Embudo:** presentación → marca y variedad → giro → 3 tiendas o más por municipio → día de captura → errores de captura.
+- **Diferencia:** brecha P90/P10 = cuánto más cuesta en el municipio caro típico que en el barato típico.
+- **Incertidumbre:** IC90 (rango probable) por bootstrap de municipios; prueba de rangos con control de falsos positivos y referencia de azar.
 
 ## Limitaciones
 
-- **Solo precio al consumidor** en tiendas monitoreadas por PROFECO; no se calculan costos, márgenes, arbitraje ni rentabilidad.
-- **Una quincena:** no se sabe si las diferencias que sobreviven persisten.
-- **Cobertura:** solo artículos con 3 tiendas o más en 10 municipios o más; los municipios con pocas tiendas monitoreadas quedan fuera de la comparación validada.
-- **Medicamentos aparte:** PROFECO no registra el laboratorio.
-- **Causalidad:** ningún resultado explica por qué cambia el precio entre municipios (costos, competencia o demanda); solo dice si la diferencia existe.
+- Solo precio al consumidor en tiendas monitoreadas por PROFECO, en una quincena.
+- Sin costos, márgenes ni volumen; ningún resultado implica causalidad.
 
-## Método
+## Método detallado
+
+<details>
+<summary>Ver tablas de sensibilidad y detalle por notebook</summary>
 
 **Notebook 00 · Datos y decisiones.** 61% de los nombres de producto tiene más de
 una presentación y 59% más de una marca. 18 municipios se
-capturaron en uno o dos días. Posibles errores de captura: 300 precios fuera de 0.5×–2× la mediana de
-su propia cadena (contra la mediana nacional serían 792, casi todos diferencias reales).
+capturaron en uno o dos días. Posibles errores de captura: 240 precios fuera de 0.5×–2× la mediana de
+su propia cadena (contra la mediana nacional serían 815, casi todos diferencias reales).
 
-**Notebook 01 · Comparación ingenua.** Brecha mediana 25.2% (IC90 23.4–28.3%);
-21% de los nombres supera 50%.
+**Notebook 01 · Comparación ingenua.** Brecha mediana 25.0% (IC90 23.3–28.2%);
+20% de los nombres supera 50%.
 
 **Notebook 02 · Embudo.**
 
 | Paso | Diferencia típica | IC90 |
 |---|---|---|
-| 0. Comparación ingenua | 25.2% | 23.4–28.3% |
-| 1. Misma presentación | 20.6% | 18.2–21.1% |
-| 2. Misma marca | 17.7% | 16.6–18.9% |
-| 3. Mismo giro | 17.2% | 15.8–18.2% |
-| 4. 3 tiendas o más | 12.1% | 10.9–13.3% |
-| 5. Ajuste por día | 12.2% | 11.0–13.3% |
-| 6. Sin errores de captura | 12.2% | 11.0–13.3% |
-| Referencia: azar | 11.5% | |
+| 0. Comparación ingenua | 25.0% | 23.3–28.2% |
+| 1. Misma presentación | 20.4% | 18.1–21.1% |
+| 2. Mismo artículo (marca y variedad) | 17.7% | 16.4–18.8% |
+| 3. Mismo giro | 17.0% | 15.4–17.8% |
+| 4. 3 tiendas o más | 11.6% | 10.4–12.8% |
+| 5. Ajuste por día | 11.7% | 10.4–12.8% |
+| 6. Sin errores de captura | 11.7% | 10.4–12.7% |
+| Referencia: azar | 10.9% | |
 
-Cada validación sola, frente a la ingenua (25.2%): misma presentación 20.6%, misma
+Cada validación sola, frente a la ingenua (25.0%): misma presentación 20.4%, misma
 marca 21.7%, mismo giro 37.5% (sube: separar giros sin definir el artículo deja mezclas en
-canales chicos) y 3 tiendas o más 25.8%. Las validaciones funcionan juntas, no por separado.
+canales chicos) y 3 tiendas o más 25.7%. Las validaciones funcionan juntas, no por separado.
 
 | Variante | Ingenua | Validada |
 |---|---|---|
-| Principal (3 tiendas, sin errores) | 25.2% | 12.2% |
-| Con todos los precios | 25.2% | 12.2% |
-| 2 tiendas o más | 26.3% | 14.4% |
-| 5 tiendas o más | 23.0% | 9.7% |
-| Solo semana 1 | 26.2% | 13.3% |
-| Solo semana 2 | 27.5% | 12.3% |
-| Solo medicamentos | 18.1% | 16.2% |
+| Principal (3 tiendas, sin errores) | 25.0% | 11.7% |
+| Con todos los precios | 25.0% | 11.7% |
+| 2 tiendas o más | 26.2% | 13.9% |
+| 5 tiendas o más | 22.7% | 8.3% |
+| Solo semana 1 | 26.1% | 12.8% |
+| Solo semana 2 | 27.4% | 11.8% |
+| Solo medicamentos | 18.1% | 16.3% |
 
-**Notebook 03 · Diferencias que sobreviven.** 122 artículos con valor p < 0.05 sin corrección (se esperarían
-54 por azar); 41 con control de falsos positivos; 20 relevantes.
+**Notebook 03 · Diferencias que sobreviven.** 138 artículos con valor p < 0.05 sin corrección (se esperarían
+62 por azar); 45 con control de falsos positivos; 21 relevantes.
 
 **Notebook 04 · Artefactos y lo que falta.** Cinco casos elegidos con una regla y la tabla de información faltante.
 
 **Notebook 05 · Visualizaciones, README y reporte.**
 
+</details>
+
 ## Fuentes
 
-Todas las gráficas y cifras son **elaboración propia con datos de PROFECO**. Convención de color por signo: verde = valor positivo (▲); rojo = valor negativo (▼). Dorado marca referencias.
+Gráficas y cifras: elaboración propia con datos de PROFECO. Color por signo en las gráficas: verde ▲ = valor positivo; rojo ▼ = negativo; dorado = referencia.
 
 - **PROFECO**, Quién es Quién en los Precios: archivo `08-2026_Q2.csv` (16–31 ago 2026). **URL oficial del programa:** https://qqp.profeco.gob.mx/
 
 ## Estructura y reproducción
+
+<details>
+<summary>Ver estructura y pasos</summary>
 
 ```
 mexico-diferencias-precio-municipios/
@@ -137,6 +205,8 @@ python verify_project.py
 `verify_project.py` recalcula la comparación ingenua y la validada solo con pandas y numpy a partir de los precios
 originales y comprueba que coinciden con este README.
 
+
+</details>
 
 ---
 
