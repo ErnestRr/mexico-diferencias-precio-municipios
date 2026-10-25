@@ -1,0 +1,14 @@
+{
+  "semilla": 2026,
+  "bootstrap_replicas": 500,
+  "repartos_azar": 200,
+  "min_municipios": 10,
+  "min_tiendas": 3,
+  "error_bajo": 0.5,
+  "error_alto": 2.0,
+  "fuera_principal": [
+    "Medicamentos"
+  ],
+  "fdr": 0.1,
+  "min_relevante_pct": 10.0
+}

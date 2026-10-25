@@ -1,0 +1,10 @@
+pandas
+numpy
+matplotlib
+plotly
+pyarrow
+pyyaml
+jupyter
+nbformat
+nbclient
+adjustText

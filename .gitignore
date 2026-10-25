@@ -1,0 +1,8 @@
+# Generado por publicar.py
+.venv/
+__pycache__/
+.ipynb_checkpoints/
+*.pyc
+# Archivo original de PROFECO (207 MB): no se publica; el análisis usa data/processed/profeco_extracto.parquet
+08-2026_Q2.csv
+data/raw/

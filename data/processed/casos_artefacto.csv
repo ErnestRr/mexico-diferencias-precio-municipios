@@ -1,0 +1,6 @@
+﻿tipo,producto,ingenua,antes,despues,validada,explicacion
+Presentación distinta,Almendras,537.8913242009132,537.8913242009132,19.020592894319964,10.566849476294404,En Monterrey el promedio es $232 y 67% de los registros son 1 kg; en Lerma es $36.50 y 100% son 75 g.
+Otra marca,Ajonjolí,205.6926406926407,40.651330570195,5.145307289185319,5.349230049483222,En Juárez el promedio es $64.79 y 57% de los registros son sin marca; en Magdalena Contreras es $21 y 100% son Verde Valle.
+Otro giro,Cinta Adhesiva,40.67903475419858,55.55555555555556,29.33753943217665,4.749430699792168,En Naucalpan de Juárez el promedio es $37.93 y 57% de los registros son papelerías; en Iztapalapa es $27.09 y 57% son supermercado.
+Una sola tienda,Planchas,100.56144519588135,59.63060686015831,5.277044854881274,5.148010581692741,"Planchas Oster: en Campeche el «precio del municipio» era el de una sola tienda (Hipermercado Soriana, $619, contra $391 en el municipio típico); con 3 tiendas o más, la diferencia del artículo baja de 60% a 5%."
+Captura errónea,Chile Fresco,51.01716899221398,41.42749961688486,22.086544696843347,22.086544696843347,"Chile Fresco 1 kg: una tienda Fresko la Comer en Cuernavaca registró $5.70, 8 veces menos que la mediana de su cadena ($43.85). Se marca y se excluye; no se borra del archivo."

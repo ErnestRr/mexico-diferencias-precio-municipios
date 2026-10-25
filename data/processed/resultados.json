@@ -1,0 +1,1007 @@
+{
+  "pct_nombres_varias_presentaciones": {
+    "cifra": 61.111111111111114,
+    "intervalo": null,
+    "n": 378,
+    "fuente": "00_datos_y_cobertura",
+    "nota": "% de nombres de producto (sin medicamentos) con más de una presentación"
+  },
+  "pct_nombres_varias_marcas": {
+    "cifra": 58.994708994709,
+    "intervalo": null,
+    "n": 378,
+    "fuente": "00_datos_y_cobertura",
+    "nota": ""
+  },
+  "municipios_un_dia": {
+    "cifra": 4.0,
+    "intervalo": null,
+    "n": null,
+    "fuente": "00_datos_y_cobertura",
+    "nota": ""
+  },
+  "municipios_hasta_dos_dias": {
+    "cifra": 18.0,
+    "intervalo": null,
+    "n": null,
+    "fuente": "00_datos_y_cobertura",
+    "nota": ""
+  },
+  "pct_igual_semanas": {
+    "cifra": 81.07813080639168,
+    "intervalo": null,
+    "n": 172224,
+    "fuente": "00_datos_y_cobertura",
+    "nota": "misma tienda y artículo con el mismo precio en las dos semanas"
+  },
+  "pct_cambio5_semanas": {
+    "cifra": 12.978446674098848,
+    "intervalo": null,
+    "n": 172224,
+    "fuente": "00_datos_y_cobertura",
+    "nota": ""
+  },
+  "efecto_dia_max": {
+    "cifra": 0.3867366047203502,
+    "intervalo": null,
+    "n": null,
+    "fuente": "00_datos_y_cobertura",
+    "nota": "mayor efecto del día de captura (días con más de 1,000 registros), en %"
+  },
+  "pct_unidad_mun_una_tienda": {
+    "cifra": 46.5270744947767,
+    "intervalo": null,
+    "n": null,
+    "fuente": "00_datos_y_cobertura",
+    "nota": "% de pares unidad–municipio con una sola tienda"
+  },
+  "posibles_errores": {
+    "cifra": 300.0,
+    "intervalo": null,
+    "n": 254987,
+    "fuente": "00_datos_y_cobertura",
+    "nota": "precio fuera de 0.5×–2× la mediana de su cadena"
+  },
+  "posibles_errores_nacional": {
+    "cifra": 792.0,
+    "intervalo": null,
+    "n": 254987,
+    "fuente": "00_datos_y_cobertura",
+    "nota": ""
+  },
+  "productos_universo": {
+    "cifra": 280.0,
+    "intervalo": null,
+    "n": null,
+    "fuente": "00_datos_y_cobertura",
+    "nota": "nombres de producto que llegan al último paso (sin medicamentos)"
+  },
+  "unidades_finales": {
+    "cifra": 1072.0,
+    "intervalo": null,
+    "n": null,
+    "fuente": "00_datos_y_cobertura",
+    "nota": ""
+  },
+  "ingenua": {
+    "cifra": 25.16933594413192,
+    "intervalo": [
+      23.390182069662654,
+      28.326572351030947
+    ],
+    "n": 280,
+    "fuente": "01_comparacion_ingenua",
+    "nota": "brecha P90/P10 mediana entre nombres de producto, comparación ingenua"
+  },
+  "pct_ingenua_30": {
+    "cifra": 43.57142857142857,
+    "intervalo": null,
+    "n": 280,
+    "fuente": "01_comparacion_ingenua",
+    "nota": "% de nombres con brecha ingenua > 30%"
+  },
+  "pct_ingenua_50": {
+    "cifra": 20.714285714285715,
+    "intervalo": null,
+    "n": 280,
+    "fuente": "01_comparacion_ingenua",
+    "nota": ""
+  },
+  "ingenua_promedio": {
+    "cifra": 43.75075211452,
+    "intervalo": null,
+    "n": 280,
+    "fuente": "01_comparacion_ingenua",
+    "nota": ""
+  },
+  "rho_articulos": {
+    "cifra": 0.10248077931107759,
+    "intervalo": null,
+    "n": 280,
+    "fuente": "01_comparacion_ingenua",
+    "nota": "Spearman entre brecha ingenua y número de artículos del nombre"
+  },
+  "ingenua_todos_nombres": {
+    "cifra": 24.817543837915856,
+    "intervalo": null,
+    "n": 737,
+    "fuente": "01_comparacion_ingenua",
+    "nota": ""
+  },
+  "paso_ingenua": {
+    "cifra": 25.16933594413192,
+    "intervalo": [
+      23.390182069662654,
+      28.326572351030947
+    ],
+    "n": 280,
+    "fuente": "02_embudo_de_comparabilidad",
+    "nota": "brecha mediana tras: Comparación ingenua"
+  },
+  "unidades_ingenua": {
+    "cifra": 280.0,
+    "intervalo": null,
+    "n": null,
+    "fuente": "02_embudo_de_comparabilidad",
+    "nota": ""
+  },
+  "paso_presentacion": {
+    "cifra": 20.580934964266106,
+    "intervalo": [
+      18.20806490040608,
+      21.116243061718244
+    ],
+    "n": 280,
+    "fuente": "02_embudo_de_comparabilidad",
+    "nota": "brecha mediana tras: Misma presentación"
+  },
+  "unidades_presentacion": {
+    "cifra": 1304.0,
+    "intervalo": null,
+    "n": null,
+    "fuente": "02_embudo_de_comparabilidad",
+    "nota": ""
+  },
+  "paso_marca": {
+    "cifra": 17.74220859716619,
+    "intervalo": [
+      16.600857232760358,
+      18.931702215487693
+    ],
+    "n": 280,
+    "fuente": "02_embudo_de_comparabilidad",
+    "nota": "brecha mediana tras: Misma marca"
+  },
+  "unidades_marca": {
+    "cifra": 1824.0,
+    "intervalo": null,
+    "n": null,
+    "fuente": "02_embudo_de_comparabilidad",
+    "nota": ""
+  },
+  "paso_giro": {
+    "cifra": 17.18439647393819,
+    "intervalo": [
+      15.83813756825689,
+      18.201639968224463
+    ],
+    "n": 280,
+    "fuente": "02_embudo_de_comparabilidad",
+    "nota": "brecha mediana tras: Mismo giro"
+  },
+  "unidades_giro": {
+    "cifra": 2726.0,
+    "intervalo": null,
+    "n": null,
+    "fuente": "02_embudo_de_comparabilidad",
+    "nota": ""
+  },
+  "paso_tiendas": {
+    "cifra": 12.084287700309037,
+    "intervalo": [
+      10.932873684173678,
+      13.313708710821354
+    ],
+    "n": 280,
+    "fuente": "02_embudo_de_comparabilidad",
+    "nota": "brecha mediana tras: 3 tiendas o más"
+  },
+  "unidades_tiendas": {
+    "cifra": 1072.0,
+    "intervalo": null,
+    "n": null,
+    "fuente": "02_embudo_de_comparabilidad",
+    "nota": ""
+  },
+  "paso_periodo": {
+    "cifra": 12.157328871039624,
+    "intervalo": [
+      10.957406813104603,
+      13.332439242237342
+    ],
+    "n": 280,
+    "fuente": "02_embudo_de_comparabilidad",
+    "nota": "brecha mediana tras: Mismo periodo"
+  },
+  "unidades_periodo": {
+    "cifra": 1072.0,
+    "intervalo": null,
+    "n": null,
+    "fuente": "02_embudo_de_comparabilidad",
+    "nota": ""
+  },
+  "paso_extremos": {
+    "cifra": 12.157328871039624,
+    "intervalo": [
+      10.957406813104603,
+      13.332439242237342
+    ],
+    "n": 280,
+    "fuente": "02_embudo_de_comparabilidad",
+    "nota": "brecha mediana tras: Sin errores de captura"
+  },
+  "unidades_extremos": {
+    "cifra": 1072.0,
+    "intervalo": null,
+    "n": null,
+    "fuente": "02_embudo_de_comparabilidad",
+    "nota": ""
+  },
+  "desaparece_pct": {
+    "cifra": 51.69785608160221,
+    "intervalo": [
+      47.4009863981724,
+      58.83969648201523
+    ],
+    "n": 280,
+    "fuente": "02_embudo_de_comparabilidad",
+    "nota": "% de la brecha ingenua que desaparece al validar"
+  },
+  "validada": {
+    "cifra": 12.157328871039624,
+    "intervalo": [
+      10.957406813104603,
+      13.332439242237342
+    ],
+    "n": 280,
+    "fuente": "02_embudo_de_comparabilidad",
+    "nota": ""
+  },
+  "validada_promedio": {
+    "cifra": 15.442164379914876,
+    "intervalo": null,
+    "n": null,
+    "fuente": "02_embudo_de_comparabilidad",
+    "nota": ""
+  },
+  "azar": {
+    "cifra": 11.500737866322003,
+    "intervalo": null,
+    "n": 280,
+    "fuente": "02_embudo_de_comparabilidad",
+    "nota": "brecha mediana si las tiendas se repartieran al azar entre municipios"
+  },
+  "exceso_pp": {
+    "cifra": 0.2435172445255427,
+    "intervalo": null,
+    "n": 280,
+    "fuente": "02_embudo_de_comparabilidad",
+    "nota": "puntos de brecha validada por encima del azar (mediana por nombre de producto)"
+  },
+  "pct_productos_sobre_p95": {
+    "cifra": 10.0,
+    "intervalo": null,
+    "n": 280,
+    "fuente": "02_embudo_de_comparabilidad",
+    "nota": ""
+  },
+  "desaparece_azar_pct": {
+    "cifra": 99.03248442840894,
+    "intervalo": null,
+    "n": 280,
+    "fuente": "02_embudo_de_comparabilidad",
+    "nota": "% de la brecha ingenua que no es comparable o no supera al azar"
+  },
+  "sola_presentacion": {
+    "cifra": 20.580934964266106,
+    "intervalo": null,
+    "n": 280,
+    "fuente": "02_embudo_de_comparabilidad",
+    "nota": ""
+  },
+  "sola_marca": {
+    "cifra": 21.73164883876979,
+    "intervalo": null,
+    "n": 280,
+    "fuente": "02_embudo_de_comparabilidad",
+    "nota": ""
+  },
+  "sola_giro": {
+    "cifra": 37.51698560559423,
+    "intervalo": null,
+    "n": 280,
+    "fuente": "02_embudo_de_comparabilidad",
+    "nota": ""
+  },
+  "sola_tiendas": {
+    "cifra": 25.805475595853025,
+    "intervalo": null,
+    "n": 280,
+    "fuente": "02_embudo_de_comparabilidad",
+    "nota": ""
+  },
+  "sens_t2_ingenua": {
+    "cifra": 26.345710720075143,
+    "intervalo": null,
+    "n": 311,
+    "fuente": "02_embudo_de_comparabilidad",
+    "nota": ""
+  },
+  "sens_t2_validada": {
+    "cifra": 14.42196558040707,
+    "intervalo": null,
+    "n": 311,
+    "fuente": "02_embudo_de_comparabilidad",
+    "nota": ""
+  },
+  "sens_t5_ingenua": {
+    "cifra": 23.01468038377068,
+    "intervalo": null,
+    "n": 181,
+    "fuente": "02_embudo_de_comparabilidad",
+    "nota": ""
+  },
+  "sens_t5_validada": {
+    "cifra": 9.73456775621927,
+    "intervalo": null,
+    "n": 181,
+    "fuente": "02_embudo_de_comparabilidad",
+    "nota": ""
+  },
+  "sens_sem1_ingenua": {
+    "cifra": 26.167835881476996,
+    "intervalo": null,
+    "n": 248,
+    "fuente": "02_embudo_de_comparabilidad",
+    "nota": ""
+  },
+  "sens_sem1_validada": {
+    "cifra": 13.346310898078599,
+    "intervalo": null,
+    "n": 248,
+    "fuente": "02_embudo_de_comparabilidad",
+    "nota": ""
+  },
+  "sens_sem2_ingenua": {
+    "cifra": 27.45806343428012,
+    "intervalo": null,
+    "n": 260,
+    "fuente": "02_embudo_de_comparabilidad",
+    "nota": ""
+  },
+  "sens_sem2_validada": {
+    "cifra": 12.278758820562636,
+    "intervalo": null,
+    "n": 260,
+    "fuente": "02_embudo_de_comparabilidad",
+    "nota": ""
+  },
+  "sens_med_ingenua": {
+    "cifra": 18.1141797114456,
+    "intervalo": null,
+    "n": 355,
+    "fuente": "02_embudo_de_comparabilidad",
+    "nota": ""
+  },
+  "sens_med_validada": {
+    "cifra": 16.244473952179625,
+    "intervalo": null,
+    "n": 355,
+    "fuente": "02_embudo_de_comparabilidad",
+    "nota": ""
+  },
+  "sens_todos_validada": {
+    "cifra": 12.157328871039624,
+    "intervalo": null,
+    "n": null,
+    "fuente": "02_embudo_de_comparabilidad",
+    "nota": ""
+  },
+  "n_articulos": {
+    "cifra": 1072.0,
+    "intervalo": null,
+    "n": null,
+    "fuente": "03_diferencias_que_sobreviven",
+    "nota": ""
+  },
+  "n_sobreviven": {
+    "cifra": 41.0,
+    "intervalo": null,
+    "n": 1072,
+    "fuente": "03_diferencias_que_sobreviven",
+    "nota": "artículos con diferencia entre municipios tras Benjamini-Hochberg 10%"
+  },
+  "pct_sobreviven": {
+    "cifra": 3.824626865671642,
+    "intervalo": null,
+    "n": 1072,
+    "fuente": "03_diferencias_que_sobreviven",
+    "nota": ""
+  },
+  "n_p05": {
+    "cifra": 122.0,
+    "intervalo": null,
+    "n": 1072,
+    "fuente": "03_diferencias_que_sobreviven",
+    "nota": ""
+  },
+  "esperados_azar_p05": {
+    "cifra": 53.6,
+    "intervalo": null,
+    "n": null,
+    "fuente": "03_diferencias_que_sobreviven",
+    "nota": ""
+  },
+  "sob_bebidas": {
+    "cifra": 21.0,
+    "intervalo": null,
+    "n": 77,
+    "fuente": "03_diferencias_que_sobreviven",
+    "nota": ""
+  },
+  "pct_sob_bebidas": {
+    "cifra": 27.27272727272727,
+    "intervalo": null,
+    "n": 77,
+    "fuente": "03_diferencias_que_sobreviven",
+    "nota": ""
+  },
+  "sob_frescos": {
+    "cifra": 7.0,
+    "intervalo": null,
+    "n": 85,
+    "fuente": "03_diferencias_que_sobreviven",
+    "nota": ""
+  },
+  "pct_sob_frescos": {
+    "cifra": 8.235294117647058,
+    "intervalo": null,
+    "n": 85,
+    "fuente": "03_diferencias_que_sobreviven",
+    "nota": ""
+  },
+  "sob_otros": {
+    "cifra": 11.0,
+    "intervalo": null,
+    "n": 906,
+    "fuente": "03_diferencias_que_sobreviven",
+    "nota": ""
+  },
+  "pct_sob_otros": {
+    "cifra": 1.2141280353200883,
+    "intervalo": null,
+    "n": 906,
+    "fuente": "03_diferencias_que_sobreviven",
+    "nota": ""
+  },
+  "sob_tortilla": {
+    "cifra": 2.0,
+    "intervalo": null,
+    "n": 4,
+    "fuente": "03_diferencias_que_sobreviven",
+    "nota": ""
+  },
+  "pct_sob_tortilla": {
+    "cifra": 50.0,
+    "intervalo": null,
+    "n": 4,
+    "fuente": "03_diferencias_que_sobreviven",
+    "nota": ""
+  },
+  "brecha_sobreviven": {
+    "cifra": 23.22689575415304,
+    "intervalo": null,
+    "n": null,
+    "fuente": "03_diferencias_que_sobreviven",
+    "nota": ""
+  },
+  "brecha_no_sobreviven": {
+    "cifra": 10.649578100249958,
+    "intervalo": null,
+    "n": null,
+    "fuente": "03_diferencias_que_sobreviven",
+    "nota": ""
+  },
+  "cadena_sobreviven": {
+    "cifra": 12.94795654088663,
+    "intervalo": null,
+    "n": null,
+    "fuente": "03_diferencias_que_sobreviven",
+    "nota": "brecha entre municipios de la misma cadena, artículos que sobreviven"
+  },
+  "cadena_no_sobreviven": {
+    "cifra": 1.52249018126267,
+    "intervalo": null,
+    "n": null,
+    "fuente": "03_diferencias_que_sobreviven",
+    "nota": ""
+  },
+  "n_relevantes": {
+    "cifra": 20.0,
+    "intervalo": null,
+    "n": 41,
+    "fuente": "03_diferencias_que_sobreviven",
+    "nota": "sobreviven, brecha >= 10% e IC90 inferior arriba de la mediana del azar"
+  },
+  "rel_bebidas": {
+    "cifra": 9.0,
+    "intervalo": null,
+    "n": null,
+    "fuente": "03_diferencias_que_sobreviven",
+    "nota": ""
+  },
+  "rel_tortilla": {
+    "cifra": 2.0,
+    "intervalo": null,
+    "n": null,
+    "fuente": "03_diferencias_que_sobreviven",
+    "nota": ""
+  },
+  "rel_frescos": {
+    "cifra": 5.0,
+    "intervalo": null,
+    "n": null,
+    "fuente": "03_diferencias_que_sobreviven",
+    "nota": ""
+  },
+  "rel_otros": {
+    "cifra": 4.0,
+    "intervalo": null,
+    "n": null,
+    "fuente": "03_diferencias_que_sobreviven",
+    "nota": ""
+  },
+  "brecha_relevantes": {
+    "cifra": 26.251926912098824,
+    "intervalo": null,
+    "n": 20,
+    "fuente": "03_diferencias_que_sobreviven",
+    "nota": ""
+  },
+  "cadena_relevantes": {
+    "cifra": 18.643635659158775,
+    "intervalo": null,
+    "n": 20,
+    "fuente": "03_diferencias_que_sobreviven",
+    "nota": ""
+  },
+  "caso_tortilla_brecha": {
+    "cifra": 46.825708789157375,
+    "intervalo": [
+      36.14803629918342,
+      50.46785634255416
+    ],
+    "n": 57,
+    "fuente": "03_diferencias_que_sobreviven",
+    "nota": "Tortilla de Maíz · 1.0 kg · S/M · tortillerías"
+  },
+  "caso_tortilla_nombre": {
+    "cifra": "Tortilla de Maíz 1 kg en tortillerías",
+    "intervalo": null,
+    "n": null,
+    "fuente": "03_diferencias_que_sobreviven",
+    "nota": ""
+  },
+  "caso_tortilla_mun_barato": {
+    "cifra": "Iztapalapa",
+    "intervalo": null,
+    "n": null,
+    "fuente": "03_diferencias_que_sobreviven",
+    "nota": ""
+  },
+  "caso_tortilla_mun_caro": {
+    "cifra": "Benito Juárez (Quintana Roo)",
+    "intervalo": null,
+    "n": null,
+    "fuente": "03_diferencias_que_sobreviven",
+    "nota": ""
+  },
+  "caso_tortilla_municipios": {
+    "cifra": 57.0,
+    "intervalo": null,
+    "n": null,
+    "fuente": "03_diferencias_que_sobreviven",
+    "nota": ""
+  },
+  "caso_tortilla_azar": {
+    "cifra": 18.00078264008168,
+    "intervalo": null,
+    "n": null,
+    "fuente": "03_diferencias_que_sobreviven",
+    "nota": ""
+  },
+  "caso_tortilla_cadena": {
+    "cifra": 46.85774502109179,
+    "intervalo": null,
+    "n": null,
+    "fuente": "03_diferencias_que_sobreviven",
+    "nota": ""
+  },
+  "caso_tortilla_barato": {
+    "cifra": 20.500680529676373,
+    "intervalo": null,
+    "n": null,
+    "fuente": "03_diferencias_que_sobreviven",
+    "nota": "Iztapalapa"
+  },
+  "caso_tortilla_caro": {
+    "cifra": 29.956136472551645,
+    "intervalo": null,
+    "n": null,
+    "fuente": "03_diferencias_que_sobreviven",
+    "nota": "Benito Juárez (Quintana Roo)"
+  },
+  "caso_bebida_brecha": {
+    "cifra": 27.260745542148925,
+    "intervalo": [
+      20.15613025097819,
+      35.48608067196173
+    ],
+    "n": 45,
+    "fuente": "03_diferencias_que_sobreviven",
+    "nota": "Refresco · 0.6 l · Coca Cola. Zero · supermercados"
+  },
+  "caso_bebida_nombre": {
+    "cifra": "Refresco Coca Cola Zero 600 ml en supermercados",
+    "intervalo": null,
+    "n": null,
+    "fuente": "03_diferencias_que_sobreviven",
+    "nota": ""
+  },
+  "caso_bebida_mun_barato": {
+    "cifra": "Miguel Hidalgo",
+    "intervalo": null,
+    "n": null,
+    "fuente": "03_diferencias_que_sobreviven",
+    "nota": ""
+  },
+  "caso_bebida_mun_caro": {
+    "cifra": "San Luis Potosí",
+    "intervalo": null,
+    "n": null,
+    "fuente": "03_diferencias_que_sobreviven",
+    "nota": ""
+  },
+  "caso_bebida_municipios": {
+    "cifra": 45.0,
+    "intervalo": null,
+    "n": null,
+    "fuente": "03_diferencias_que_sobreviven",
+    "nota": ""
+  },
+  "caso_bebida_azar": {
+    "cifra": 18.61230681166639,
+    "intervalo": null,
+    "n": null,
+    "fuente": "03_diferencias_que_sobreviven",
+    "nota": ""
+  },
+  "caso_bebida_cadena": {
+    "cifra": 18.951814886483696,
+    "intervalo": null,
+    "n": null,
+    "fuente": "03_diferencias_que_sobreviven",
+    "nota": ""
+  },
+  "caso_bebida_barato": {
+    "cifra": 16.48903317931002,
+    "intervalo": null,
+    "n": null,
+    "fuente": "03_diferencias_que_sobreviven",
+    "nota": "Miguel Hidalgo"
+  },
+  "caso_bebida_caro": {
+    "cifra": 20.985125627641523,
+    "intervalo": null,
+    "n": null,
+    "fuente": "03_diferencias_que_sobreviven",
+    "nota": "San Luis Potosí"
+  },
+  "caso_fresco_brecha": {
+    "cifra": 38.79693273954625,
+    "intervalo": [
+      36.15296592005574,
+      47.36656518997405
+    ],
+    "n": 45,
+    "fuente": "03_diferencias_que_sobreviven",
+    "nota": "Lechuga · texto: Pieza. Romana · S/M · supermercados"
+  },
+  "caso_fresco_nombre": {
+    "cifra": "Lechuga (pieza, romana) en supermercados",
+    "intervalo": null,
+    "n": null,
+    "fuente": "03_diferencias_que_sobreviven",
+    "nota": ""
+  },
+  "caso_fresco_mun_barato": {
+    "cifra": "Culiacán",
+    "intervalo": null,
+    "n": null,
+    "fuente": "03_diferencias_que_sobreviven",
+    "nota": ""
+  },
+  "caso_fresco_mun_caro": {
+    "cifra": "Benito Juárez (Ciudad de México)",
+    "intervalo": null,
+    "n": null,
+    "fuente": "03_diferencias_que_sobreviven",
+    "nota": ""
+  },
+  "caso_fresco_municipios": {
+    "cifra": 45.0,
+    "intervalo": null,
+    "n": null,
+    "fuente": "03_diferencias_que_sobreviven",
+    "nota": ""
+  },
+  "caso_fresco_azar": {
+    "cifra": 34.2228506166677,
+    "intervalo": null,
+    "n": null,
+    "fuente": "03_diferencias_que_sobreviven",
+    "nota": ""
+  },
+  "caso_fresco_cadena": {
+    "cifra": 25.54262785875059,
+    "intervalo": null,
+    "n": null,
+    "fuente": "03_diferencias_que_sobreviven",
+    "nota": ""
+  },
+  "caso_fresco_barato": {
+    "cifra": 17.903493235190894,
+    "intervalo": null,
+    "n": null,
+    "fuente": "03_diferencias_que_sobreviven",
+    "nota": "Culiacán"
+  },
+  "caso_fresco_caro": {
+    "cifra": 24.872890636966673,
+    "intervalo": null,
+    "n": null,
+    "fuente": "03_diferencias_que_sobreviven",
+    "nota": "Benito Juárez (Ciudad de México)"
+  },
+  "sob_no_relevantes": {
+    "cifra": 21.0,
+    "intervalo": null,
+    "n": 41,
+    "fuente": "03_diferencias_que_sobreviven",
+    "nota": "sobreviven a la prueba pero con brecha < 10% o IC90 que toca la mediana del azar"
+  },
+  "p05_no_sobreviven": {
+    "cifra": 81.0,
+    "intervalo": null,
+    "n": null,
+    "fuente": "03_diferencias_que_sobreviven",
+    "nota": ""
+  },
+  "art1_ingenua": {
+    "cifra": 537.8913242009132,
+    "intervalo": null,
+    "n": null,
+    "fuente": "04_artefactos_y_lo_que_falta",
+    "nota": "Presentación distinta: Almendras"
+  },
+  "art1_validada": {
+    "cifra": 10.566849476294404,
+    "intervalo": null,
+    "n": null,
+    "fuente": "04_artefactos_y_lo_que_falta",
+    "nota": "Presentación distinta: Almendras"
+  },
+  "art1_antes": {
+    "cifra": 537.8913242009132,
+    "intervalo": null,
+    "n": null,
+    "fuente": "04_artefactos_y_lo_que_falta",
+    "nota": ""
+  },
+  "art1_despues": {
+    "cifra": 19.020592894319964,
+    "intervalo": null,
+    "n": null,
+    "fuente": "04_artefactos_y_lo_que_falta",
+    "nota": ""
+  },
+  "art1_producto": {
+    "cifra": "Almendras",
+    "intervalo": null,
+    "n": null,
+    "fuente": "04_artefactos_y_lo_que_falta",
+    "nota": ""
+  },
+  "art1_explicacion": {
+    "cifra": "En Monterrey el promedio es $232 y 67% de los registros son 1 kg; en Lerma es $36.50 y 100% son 75 g.",
+    "intervalo": null,
+    "n": null,
+    "fuente": "04_artefactos_y_lo_que_falta",
+    "nota": ""
+  },
+  "art2_ingenua": {
+    "cifra": 205.6926406926407,
+    "intervalo": null,
+    "n": null,
+    "fuente": "04_artefactos_y_lo_que_falta",
+    "nota": "Otra marca: Ajonjolí"
+  },
+  "art2_validada": {
+    "cifra": 5.349230049483222,
+    "intervalo": null,
+    "n": null,
+    "fuente": "04_artefactos_y_lo_que_falta",
+    "nota": "Otra marca: Ajonjolí"
+  },
+  "art2_antes": {
+    "cifra": 40.651330570195,
+    "intervalo": null,
+    "n": null,
+    "fuente": "04_artefactos_y_lo_que_falta",
+    "nota": ""
+  },
+  "art2_despues": {
+    "cifra": 5.145307289185319,
+    "intervalo": null,
+    "n": null,
+    "fuente": "04_artefactos_y_lo_que_falta",
+    "nota": ""
+  },
+  "art2_producto": {
+    "cifra": "Ajonjolí",
+    "intervalo": null,
+    "n": null,
+    "fuente": "04_artefactos_y_lo_que_falta",
+    "nota": ""
+  },
+  "art2_explicacion": {
+    "cifra": "En Juárez el promedio es $64.79 y 57% de los registros son sin marca; en Magdalena Contreras es $21 y 100% son Verde Valle.",
+    "intervalo": null,
+    "n": null,
+    "fuente": "04_artefactos_y_lo_que_falta",
+    "nota": ""
+  },
+  "art3_ingenua": {
+    "cifra": 40.67903475419858,
+    "intervalo": null,
+    "n": null,
+    "fuente": "04_artefactos_y_lo_que_falta",
+    "nota": "Otro giro: Cinta Adhesiva"
+  },
+  "art3_validada": {
+    "cifra": 4.749430699792168,
+    "intervalo": null,
+    "n": null,
+    "fuente": "04_artefactos_y_lo_que_falta",
+    "nota": "Otro giro: Cinta Adhesiva"
+  },
+  "art3_antes": {
+    "cifra": 55.55555555555556,
+    "intervalo": null,
+    "n": null,
+    "fuente": "04_artefactos_y_lo_que_falta",
+    "nota": ""
+  },
+  "art3_despues": {
+    "cifra": 29.33753943217665,
+    "intervalo": null,
+    "n": null,
+    "fuente": "04_artefactos_y_lo_que_falta",
+    "nota": ""
+  },
+  "art3_producto": {
+    "cifra": "Cinta Adhesiva",
+    "intervalo": null,
+    "n": null,
+    "fuente": "04_artefactos_y_lo_que_falta",
+    "nota": ""
+  },
+  "art3_explicacion": {
+    "cifra": "En Naucalpan de Juárez el promedio es $37.93 y 57% de los registros son papelerías; en Iztapalapa es $27.09 y 57% son supermercado.",
+    "intervalo": null,
+    "n": null,
+    "fuente": "04_artefactos_y_lo_que_falta",
+    "nota": ""
+  },
+  "art4_ingenua": {
+    "cifra": 100.56144519588135,
+    "intervalo": null,
+    "n": null,
+    "fuente": "04_artefactos_y_lo_que_falta",
+    "nota": "Una sola tienda: Planchas"
+  },
+  "art4_validada": {
+    "cifra": 5.148010581692741,
+    "intervalo": null,
+    "n": null,
+    "fuente": "04_artefactos_y_lo_que_falta",
+    "nota": "Una sola tienda: Planchas"
+  },
+  "art4_antes": {
+    "cifra": 59.63060686015831,
+    "intervalo": null,
+    "n": null,
+    "fuente": "04_artefactos_y_lo_que_falta",
+    "nota": ""
+  },
+  "art4_despues": {
+    "cifra": 5.277044854881274,
+    "intervalo": null,
+    "n": null,
+    "fuente": "04_artefactos_y_lo_que_falta",
+    "nota": ""
+  },
+  "art4_producto": {
+    "cifra": "Planchas",
+    "intervalo": null,
+    "n": null,
+    "fuente": "04_artefactos_y_lo_que_falta",
+    "nota": ""
+  },
+  "art4_explicacion": {
+    "cifra": "Planchas Oster: en Campeche el «precio del municipio» era el de una sola tienda (Hipermercado Soriana, $619, contra $391 en el municipio típico); con 3 tiendas o más, la diferencia del artículo baja de 60% a 5%.",
+    "intervalo": null,
+    "n": null,
+    "fuente": "04_artefactos_y_lo_que_falta",
+    "nota": ""
+  },
+  "art5_ingenua": {
+    "cifra": 51.01716899221398,
+    "intervalo": null,
+    "n": null,
+    "fuente": "04_artefactos_y_lo_que_falta",
+    "nota": "Captura errónea: Chile Fresco"
+  },
+  "art5_validada": {
+    "cifra": 22.086544696843347,
+    "intervalo": null,
+    "n": null,
+    "fuente": "04_artefactos_y_lo_que_falta",
+    "nota": "Captura errónea: Chile Fresco"
+  },
+  "art5_antes": {
+    "cifra": 41.42749961688486,
+    "intervalo": null,
+    "n": null,
+    "fuente": "04_artefactos_y_lo_que_falta",
+    "nota": ""
+  },
+  "art5_despues": {
+    "cifra": 22.086544696843347,
+    "intervalo": null,
+    "n": null,
+    "fuente": "04_artefactos_y_lo_que_falta",
+    "nota": ""
+  },
+  "art5_producto": {
+    "cifra": "Chile Fresco",
+    "intervalo": null,
+    "n": null,
+    "fuente": "04_artefactos_y_lo_que_falta",
+    "nota": ""
+  },
+  "art5_explicacion": {
+    "cifra": "Chile Fresco 1 kg: una tienda Fresko la Comer en Cuernavaca registró $5.70, 8 veces menos que la mediana de su cadena ($43.85). Se marca y se excluye; no se borra del archivo.",
+    "intervalo": null,
+    "n": null,
+    "fuente": "04_artefactos_y_lo_que_falta",
+    "nota": ""
+  },
+  "falta_no": {
+    "cifra": 5.0,
+    "intervalo": null,
+    "n": 7,
+    "fuente": "04_artefactos_y_lo_que_falta",
+    "nota": ""
+  }
+}

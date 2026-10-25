@@ -1,0 +1,8 @@
+﻿paso,unidades,productos,brecha_mediana,brecha_promedio,ic90_inf,ic90_sup,cambio_pp,nombre,que_exige
+ingenua,280,280,25.16933594413192,43.75075211452,23.390182069662654,28.326572351030947,,Comparación ingenua,solo el nombre del producto; promedio de todos los registros del municipio
+presentacion,1304,280,20.580934964266106,24.77382230492248,18.20806490040608,21.116243061718244,-4.588400979865813,Misma presentación,"mismo tamaño y unidad normalizados (kg, litro, pieza)"
+marca,1824,280,17.74220859716619,23.354252486924945,16.600857232760358,18.931702215487693,-2.838726367099916,Misma marca,misma marca y presentación (el mismo artículo)
+giro,2726,280,17.18439647393819,26.896754722635123,15.83813756825689,18.201639968224463,-0.5578121232280004,Mismo giro,"supermercado contra supermercado, farmacia contra farmacia…"
+tiendas,1072,280,12.084287700309037,15.570675374680482,10.932873684173678,13.313708710821354,-5.100108773629152,3 tiendas o más,precio de cada tienda (mediana) y al menos 3 tiendas por municipio
+periodo,1072,280,12.157328871039624,15.569057227141132,10.957406813104603,13.332439242237342,0.07304117073058691,Mismo periodo,precio ajustado por el día de captura
+extremos,1072,280,12.157328871039624,15.442164379914876,10.957406813104603,13.332439242237342,0.0,Sin errores de captura,sin precios fuera de 0.5×–2× de su propia cadena

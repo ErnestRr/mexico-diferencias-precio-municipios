@@ -1,0 +1,8 @@
+﻿Qué se necesitaría,¿Está en los datos usados?,Qué sí hay,Dónde podría buscarse (siguiente paso)
+Costos de adquisición y logística,No,Nada: PROFECO registra solo el precio de anaquel,"Cotizaciones de proveedores, tarifas de flete y distancias a centros de distribución (datos propios)"
+Márgenes,No,Nada: sin costo no hay margen,Estados financieros por plaza o categoría (datos propios)
+Demanda y volumen,No,Nada: no hay ventas ni piezas vendidas,"Ventas propias por plaza; como siguiente paso, gasto de los hogares por región (INEGI, ENIGH)"
+Competencia y características del mercado,Parcial,Cadenas y tiendas monitoreadas en cada municipio,"Número de establecimientos por municipio y giro (INEGI, DENUE y Censos Económicos)"
+Tamaño de la población,No,Nada en el archivo de precios,"Población por municipio (INEGI, Censo de Población y Vivienda)"
+Precio en tiendas no monitoreadas,No,Solo tiendas que visita PROFECO,Levantamiento propio de precios en la plaza
+Estabilidad en el tiempo,Parcial,Una quincena; el precio casi no cambia entre semanas,Varias quincenas de PROFECO para ver si la diferencia persiste

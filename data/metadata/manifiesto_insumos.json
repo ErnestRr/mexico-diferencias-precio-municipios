@@ -1,0 +1,11 @@
+{
+  "archivo_original": "08-2026_Q2.csv",
+  "sha256_original": "cfde30f577cc580d93f3f260a104f85491e42f3d3dae395520e50e33706a7ea3",
+  "sha256_parquet": "0f5b108d98deacae4857a31b0a503f2feab08f129cdfb906329b11d6bbcd9ea4",
+  "fecha_inicio": "2026-08-16",
+  "fecha_fin": "2026-08-31",
+  "fuente": "PROFECO, Quién es Quién en los Precios",
+  "nota": "URL oficial del programa Quién es Quién en los Precios: https://qqp.profeco.gob.mx/",
+  "registros_analisis": 657602,
+  "modificado": false
+}
