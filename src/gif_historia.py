@@ -1,8 +1,9 @@
-"""GIF corto (≈36 s, 960×960) con la historia del análisis, para acompañar una publicación.
+"""GIF vertical (1080×1350, ≤20 s) con la historia del análisis y sus cuadros clave en PNG para carrusel.
 
-Escenas: pregunta → a lo bruto → embudo paso a paso → caso almendras → lo que sobrevive → cierre con firma.
-Notas con letra manuscrita, ligeramente inclinadas, y subrayados a mano alzada.
-Uso: python src/gif_historia.py  → outputs/social/historia_embudo.gif
+Cuadros: pregunta → a lo bruto → escalera de validación → almendras → lo que sobrevive → cierre.
+Todas las cifras salen de data/processed/ (resultados.json, embudo.csv, brecha_producto_paso.csv, sobrevivientes.csv).
+Reglas de lectura en celular: ningún texto menor a 28 px (salvo «Python · Plotly», 22 px) y títulos de 56 px o más.
+Uso: python src/gif_historia.py → outputs/social/historia_embudo.gif y outputs/social/carrusel_0X_*.png
 """
 from pathlib import Path
 import json
@@ -19,178 +20,193 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 import charts as C  # noqa: E402
 
-W = H = 960
-DPI = 100
-HAND = "Ink Free"
-rng = np.random.default_rng(7)
-R = {k: v["cifra"] for k, v in json.loads((ROOT / "data/processed/resultados.json").read_text(encoding="utf-8")).items()}
-RES = pd.read_csv(ROOT / "data/processed/embudo.csv", encoding="utf-8-sig")
-CH = ROOT / "outputs/charts"
-frames = []   # (imagen PIL, duración ms)
+W, H, DPI = 1080, 1350, 100
+PT = 72 / DPI                     # puntos por píxel
+MIN_PX, TITLE_PX, SMALL_PX = 28, 56, 22
+HAND, SANS = "Ink Free", "Segoe UI"
+OUT = ROOT / "outputs/social"
+rng = np.random.default_rng(11)
+
+PROC = ROOT / "data/processed"
+R = {k: v["cifra"] for k, v in json.loads((PROC / "resultados.json").read_text(encoding="utf-8")).items()}
+RES = pd.read_csv(PROC / "embudo.csv", encoding="utf-8-sig")
+PROD = pd.read_csv(PROC / "brecha_producto_paso.csv", encoding="utf-8-sig").dropna(subset=["ingenua", "extremos"])
+SOB = pd.read_csv(PROC / "sobrevivientes.csv", encoding="utf-8-sig")
+P30_ING = (PROD.ingenua > 30).mean() * 100
+P30_VAL = (PROD.extremos > 30).mean() * 100
+
+frames = []
 
 
-def fig_new():
+def px(size_px):
+    return size_px * PT
+
+
+def T(fig, x, y, s, size_px, color=C.TEXT, bold=False, family=SANS, small_ok=False, **kw):
+    """Texto en el lienzo con tamaño en píxeles; impide textos menores a 28 px."""
+    assert size_px >= (SMALL_PX if small_ok else MIN_PX), f"texto de {size_px}px: «{s}»"
+    kw.setdefault("va", "center")
+    return fig.text(x, y, s, fontsize=px(size_px), color=color, fontweight="bold" if bold else "normal",
+                    fontfamily=family, **kw)
+
+
+def hand(fig, x, y, s, size_px=40, color=C.GOLD, rot=None, **kw):
+    return T(fig, x, y, s, size_px, color=color, family=HAND, rotation=rng.uniform(-2, 2) if rot is None else rot, **kw)
+
+
+def scribble(fig, x0, x1, y, color=C.GOLD, lw=4):
+    xs = np.linspace(x0, x1, 40)
+    ys = y + np.cumsum(rng.normal(0, 0.0009, 40)) + np.linspace(0, rng.uniform(-0.004, 0.004), 40)
+    fig.add_artist(plt.Line2D(xs, ys, transform=fig.transFigure, color=color, lw=lw, solid_capstyle="round", alpha=0.9))
+
+
+def title(fig, s, y=0.935):
+    T(fig, 0.065, y, s, 60, bold=True, va="top", linespacing=1.15)
+
+
+def new():
     fig = plt.figure(figsize=(W / DPI, H / DPI), dpi=DPI)
     fig.patch.set_facecolor(C.FIG)
     return fig
 
 
-def grab(fig, ms):
+def grab(fig, ms, png=None):
+    if png:
+        fig.savefig(OUT / png, dpi=DPI, facecolor=C.FIG)
     fig.canvas.draw()
-    img = Image.fromarray(np.asarray(fig.canvas.buffer_rgba())[..., :3].copy())
+    frames.append((Image.fromarray(np.asarray(fig.canvas.buffer_rgba())[..., :3].copy()), ms))
     plt.close(fig)
-    frames.append((img, ms))
 
 
-def hand(fig, x, y, s, size=26, color=C.GOLD, rot=None, ha="left", **kw):
-    fig.text(x, y, s, fontfamily=HAND, fontsize=size, color=color, ha=ha, va="center",
-             rotation=rng.uniform(-2.5, 2.5) if rot is None else rot, **kw)
+def pct(v, dec=0):
+    return f"{v:.{dec}f}%"
 
 
-def scribble(fig, x0, x1, y, color=C.GOLD, lw=3):
-    """Subrayado a mano alzada: línea con temblor."""
-    xs = np.linspace(x0, x1, 40)
-    ys = y + np.cumsum(rng.normal(0, 0.0012, 40)) + np.linspace(0, rng.uniform(-0.006, 0.006), 40)
-    fig.add_artist(plt.Line2D(xs, ys, transform=fig.transFigure, color=color, lw=lw, solid_capstyle="round", alpha=0.9))
+def delta(v, dec=1, suf=" pp"):
+    return (f"▲ {v:+.{dec}f}" if v > 0 else f"▼ {v:+.{dec}f}").replace("-", "−") + suf
 
 
-def title(fig, s, y=0.93, size=27, color=C.TEXT, weight="bold"):
-    fig.text(0.06, y, s, fontsize=size, color=color, fontweight=weight, va="top", fontfamily="Segoe UI")
-
-
-def chart(fig, name, rect):
-    img = plt.imread(CH / name)
-    ax = fig.add_axes(rect)
-    ax.imshow(img)
-    ax.axis("off")
-
-
-def firma(fig):
-    fig.text(0.5, 0.035, C.FIRMA, ha="center", fontsize=10.5, color=C.TEXT2, fontfamily="Segoe UI")
-
-
-# ----------------------------------------------------------------------------- 1. la pregunta
-q = "«Este producto cuesta 25% más\nen otra ciudad»"
-for k in range(6, len(q) + 1, 6):
-    fig = fig_new()
-    fig.text(0.06, 0.70, "Un reporte dice:", fontsize=26, color=C.TEXT2, fontfamily="Segoe UI")
-    fig.text(0.06, 0.62, q[:k], fontsize=30, va="top", color=C.TEXT, fontweight="bold", fontfamily="Segoe UI")
-    grab(fig, 90)
-for ms, extra in [(800, False), (2300, True)]:
-    fig = fig_new()
-    fig.text(0.06, 0.70, "Un reporte dice:", fontsize=26, color=C.TEXT2, fontfamily="Segoe UI")
-    fig.text(0.06, 0.62, q, fontsize=30, va="top", color=C.TEXT, fontweight="bold", fontfamily="Segoe UI")
-    if extra:
-        hand(fig, 0.08, 0.36, "¿es una oportunidad?", size=46, rot=-3)
-        scribble(fig, 0.08, 0.80, 0.31)
-        fig.text(0.06, 0.18, "Precios de PROFECO · 72 municipios · 16–31 ago 2026", fontsize=15, color=C.MUTED,
-                 fontfamily="Segoe UI")
-    grab(fig, ms)
+# ----------------------------------------------------------------------------- 1. pregunta (sin animación: vista previa)
+fig = new()
+T(fig, 0.065, 0.80, "Un reporte dice:", 40, color=C.TEXT2)
+T(fig, 0.065, 0.735, f"«Este producto cuesta\n{R['paso_ingenua']:.0f}% más en otra\nciudad»", 76, bold=True, va="top", linespacing=1.15)
+hand(fig, 0.075, 0.38, "¿es una oportunidad?", 84, rot=-3)
+scribble(fig, 0.075, 0.90, 0.325)
+T(fig, 0.065, 0.12, f"Precios de PROFECO · {R['productos_universo']:.0f} productos\n72 municipios · 16–31 ago 2026", 30,
+  color=C.MUTED, va="top", linespacing=1.3)
+grab(fig, 2500, "carrusel_01_pregunta.png")
 
 # ----------------------------------------------------------------------------- 2. a lo bruto
-fig = fig_new()
-title(fig, "1. A lo bruto, todo parece oportunidad")
-chart(fig, "02_distribucion_ingenua_validada.png", [0.03, 0.22, 0.94, 0.62])
-hand(fig, 0.08, 0.15, f"{R['pct_ingenua_30']:.0f}% de los productos «cuesta» +30% en otra ciudad", size=24, color=C.TEXT)
-grab(fig, 2800)
-fig = fig_new()
-title(fig, "1. A lo bruto, todo parece oportunidad")
-chart(fig, "02_distribucion_ingenua_validada.png", [0.03, 0.22, 0.94, 0.62])
-hand(fig, 0.08, 0.15, f"{R['pct_ingenua_30']:.0f}% de los productos «cuesta» +30% en otra ciudad", size=24, color=C.TEXT)
-hand(fig, 0.30, 0.08, "comparando lo mismo... ¿cuánto queda?", size=24, color=C.GOLD)
-grab(fig, 2100)
+fig = new()
+title(fig, "1. A lo bruto, todo\nparece oportunidad")
+T(fig, 0.065, 0.58, pct(P30_ING), 190, bold=True, color=C.SAND)
+T(fig, 0.47, 0.58, "→", 120, color=C.TEXT2)
+T(fig, 0.60, 0.58, pct(P30_VAL), 190, bold=True, color=C.TEXT)
+T(fig, 0.065, 0.43, "de los productos parecían costar\n+30% más en otro municipio", 44, color=C.TEXT, va="top", linespacing=1.25)
+T(fig, 0.065, 0.24, delta(P30_VAL - P30_ING, 0), 64, bold=True, color=C.RED_T)
+hand(fig, 0.42, 0.24, "al comparar el\nmismo artículo", 44, color=C.GOLD)
+grab(fig, 2500)
 
-# ----------------------------------------------------------------------------- 3. el embudo, paso a paso
+# ----------------------------------------------------------------------------- 3. escalera
 labels = ["A lo bruto", "Misma presentación", "Mismo artículo", "Mismo giro", "3+ tiendas", "Mismo día", "Sin errores"]
-vals = RES.brecha_mediana.tolist()
-cambios = RES.cambio_pp.tolist()
+vals, cam = RES.brecha_mediana.tolist(), RES.cambio_pp.tolist()
 
 
-def embudo_frame(n, azar=False, nota=False, ms=1100):
-    fig = fig_new()
-    title(fig, "2. Al comparar lo mismo, la diferencia se encoge", size=25)
-    ax = fig.add_axes([0.31, 0.14, 0.46, 0.66])
+def escalera(n, ms, png=None):
+    fig = new()
+    title(fig, "2. Al comparar lo mismo,\nla diferencia se encoge")
+    ax = fig.add_axes([0.40, 0.20, 0.36, 0.56])
     ax.set_facecolor(C.FIG)
-    for i in range(len(labels)):
-        if i >= n:
+    for i, lab in enumerate(labels):
+        on = i < n
+        ax.text(-0.04, i, lab, transform=ax.get_yaxis_transform(), ha="right", va="center", fontsize=px(34),
+                fontweight="bold", color=C.TEXT if on else C.GRID, fontfamily=SANS)
+        if not on:
             continue
-        col = C.SAND if i == 0 else C.SLATE
-        ax.barh(i, vals[i], height=0.6, color=col, edgecolor=C.TEXT if i == len(labels) - 1 else "none", lw=1.5)
-        ax.text(vals[i] + 0.5, i, f"{vals[i]:.1f}%", va="center", fontsize=15, color=C.TEXT, fontweight="bold")
-        if i > 0 and abs(cambios[i]) >= 0.05:
-            c = C.RED_T if cambios[i] < 0 else C.GREEN_T
-            a = "▼" if cambios[i] < 0 else "▲"
-            ax.text(1.24, i, f"{a} {cambios[i]:+.1f} pp".replace("-", "−"), va="center", ha="right", fontsize=14,
-                    color=c, fontweight="bold", transform=ax.get_yaxis_transform())
-    for i, l in enumerate(labels):
-        ax.text(-0.6, i, l, ha="right", va="center", fontsize=15, color=C.TEXT if i < n else C.GRID, fontweight="bold")
-    if azar:
-        ax.axvline(R["azar"], color=C.GOLD, lw=2.2, ls=(0, (5, 4)))
-    ax.set(xlim=(0, 30), ylim=(len(labels) - 0.5, -0.6), yticks=[], xticks=[0, 10, 20, 30])
-    ax.tick_params(colors=C.TEXT2, labelsize=12)
+        ax.barh(i, vals[i], height=0.62, color=C.SAND if i == 0 else C.SLATE,
+                edgecolor=C.TEXT if i == len(labels) - 1 else "none", lw=2)
+        ax.text(vals[i] + 0.6, i, f"{vals[i]:.1f}%", va="center", fontsize=px(32), fontweight="bold", color=C.TEXT,
+                fontfamily=SANS)
+        if i and abs(cam[i]) >= 0.05:
+            ax.text(1.38, i, delta(cam[i]), transform=ax.get_yaxis_transform(), ha="right", va="center",
+                    fontsize=px(30), fontweight="bold", color=C.RED_T if cam[i] < 0 else C.GREEN_T, fontfamily=SANS)
+    if n == len(labels):
+        ax.axvline(R["azar"], color=C.GOLD, lw=3, ls=(0, (6, 5)))
+        hand(fig, 0.40, 0.80, f"- - - lo que daría el azar: {R['azar']:.1f}%", 38, color=C.GOLD, rot=0)
+        hand(fig, 0.065, 0.11, f"de {vals[0]:.0f}% a {vals[-1]:.1f}%: desaparece {R['desaparece_pct']:.0f}%", 52,
+             color=C.RED_T, rot=-1.5)
+    ax.set(xlim=(0, 30), ylim=(len(labels) - 0.5, -0.6), yticks=[], xticks=[])
     for s in ax.spines.values():
         s.set_visible(False)
-    ax.xaxis.set_major_formatter(lambda x, _: f"{x:.0f}%")
-    if azar:
-        hand(fig, 0.36, 0.86, f"<-- esto daría el puro azar ({R['azar']:.1f}%)", size=22, color=C.GOLD)
-    if nota:
-        hand(fig, 0.10, 0.07, f"de {vals[0]:.0f}% a {vals[-1]:.1f}%: desaparece {R['desaparece_pct']:.0f}%", size=27,
-             color=C.RED_T, rot=-1.5)
-    grab(fig, ms)
+    grab(fig, ms, png)
 
 
-for n in range(1, len(labels) + 1):
-    embudo_frame(n, ms=1300 if n in (2, 5) else 900)
-embudo_frame(len(labels), azar=True, ms=2200)
-embudo_frame(len(labels), azar=True, nota=True, ms=2900)
+escalera(1, 500)
+escalera(4, 500)
+escalera(len(labels), 3000, "carrusel_02_escalera.png")
 
-# ----------------------------------------------------------------------------- 4. cómo nace una diferencia falsa
-for paso in range(3):
-    fig = fig_new()
-    title(fig, "3. Cómo nace una diferencia falsa")
-    fig.text(0.06, 0.74, "Almendras", fontsize=40, color=C.TEXT, fontweight="bold", fontfamily="Segoe UI")
-    fig.text(0.06, 0.64, f"a lo bruto: {R['art1_ingenua']:.0f}% más cara en otro municipio", fontsize=24, color=C.TEXT2,
-             fontfamily="Segoe UI")
-    if paso >= 1:
-        hand(fig, 0.08, 0.50, "Monterrey: bolsa de 1 kg", size=30, color=C.TEXT)
-        hand(fig, 0.08, 0.42, "Lerma: bolsa de 75 g", size=30, color=C.TEXT)
-        scribble(fig, 0.08, 0.62, 0.385, color=C.RED_T, lw=2.5)
-    if paso >= 2:
-        fig.text(0.06, 0.25, f"misma presentación: {R['art1_despues']:.0f}%", fontsize=30, color=C.TEXT, fontweight="bold",
-                 fontfamily="Segoe UI")
-        fig.text(0.06, 0.17, f"▼ {R['art1_despues'] - R['art1_antes']:+.0f} pp".replace("-", "−"), fontsize=30,
-                 color=C.RED_T, fontweight="bold", fontfamily="Segoe UI")
-        hand(fig, 0.55, 0.17, "no era precio, era tamaño", size=26, color=C.GOLD)
-    grab(fig, [1400, 1900, 2700][paso])
+# ----------------------------------------------------------------------------- 4. almendras
+fig = new()
+title(fig, "3. Cómo nace una\ndiferencia falsa")
+T(fig, 0.065, 0.66, "Almendras", 96, bold=True)
+T(fig, 0.065, 0.585, f"a lo bruto: {R['art1_ingenua']:.0f}% más caras\nen otro municipio", 44, color=C.TEXT2, va="top",
+  linespacing=1.25)
+hand(fig, 0.08, 0.43, "Monterrey: bolsa de 1 kg", 54, color=C.TEXT)
+hand(fig, 0.08, 0.355, "Lerma: bolsa de 75 g", 54, color=C.TEXT)
+scribble(fig, 0.08, 0.66, 0.318, color=C.RED_T, lw=3.5)
+T(fig, 0.065, 0.225, f"misma presentación: {R['art1_despues']:.0f}%", 56, bold=True)
+T(fig, 0.065, 0.135, delta(R["art1_despues"] - R["art1_antes"], 0), 64, bold=True, color=C.RED_T)
+hand(fig, 0.48, 0.135, "no era precio,\nera tamaño", 44, color=C.GOLD)
+grab(fig, 3000, "carrusel_03_almendras.png")
 
 # ----------------------------------------------------------------------------- 5. lo que sobrevive
-fig = fig_new()
+CORTO = {("Tortilla de Maíz", "Tortillerías"): "Tortilla (tortillería)", ("Refresco", "Coca Cola. Zero"): "Coca-Cola Zero 600 ml",
+         ("Refresco", "Fresca"): "Fresca 3 L", ("Cerveza", "Tecate"): "Tecate 12 latas",
+         ("Alimentos Preparados", "Maruchan"): "Sopa Maruchan", ("Lechuga", "S/M"): "Lechuga romana",
+         ("Nopal", "S/M"): "Nopal", ("Limón", "S/M"): "Limón persa"}
+
+
+def corto(r_):
+    return CORTO.get((r_.producto, r_.giro if "Tortiller" in str(r_.giro) else r_.marca), r_.producto)
+
+
+# Regla: los relevantes con la prueba más fuerte, uno por familia y luego se completa hasta 5.
+rel = SOB[SOB.relevante].sort_values("p_valor")
+pick = rel.drop_duplicates("familia")
+pick = pd.concat([pick, rel.drop(pick.index)]).head(5).sort_values("brecha_pct", ascending=False)
+fig = new()
 title(fig, "4. Lo que sí sobrevive")
-chart(fig, "04_casos_sobreviven.png", [0.03, 0.17, 0.94, 0.70])
-grab(fig, 1800)
-fig = fig_new()
-title(fig, "4. Lo que sí sobrevive")
-chart(fig, "04_casos_sobreviven.png", [0.03, 0.17, 0.94, 0.70])
-hand(fig, 0.07, 0.11, f"solo {R['n_relevantes']:.0f} de {R['n_articulos']:,.0f}: refrescos, cerveza, tortilla, frescos",
-     size=24, color=C.GREEN_T)
-grab(fig, 2900)
+T(fig, 0.065, 0.80, f"{R['n_relevantes']:.0f} de {R['n_articulos']:,.0f} artículos con\ndiferencia real entre municipios", 40,
+  color=C.TEXT2, va="top", linespacing=1.25)
+for k, r_ in enumerate(pick.itertuples()):
+    y = 0.60 - k * 0.095
+    if k % 2 == 0:
+        fig.patches.append(plt.Rectangle((0.04, y - 0.042), 0.92, 0.084, transform=fig.transFigure, color=C.ZEBRA, zorder=0))
+    T(fig, 0.07, y, corto(r_), 44, bold=True)
+    T(fig, 0.93, y, f"▲ {r_.brecha_pct:.0f}%", 60, bold=True, color=C.GREEN_T, ha="right")
+hand(fig, 0.065, 0.10, "aquí la misma cadena\ncobra distinto por plaza", 46, color=C.GOLD)
+grab(fig, 3000, "carrusel_04_sobrevive.png")
 
 # ----------------------------------------------------------------------------- 6. cierre
-for paso in range(2):
-    fig = fig_new()
-    fig.text(0.06, 0.74, "Una diferencia de precio", fontsize=34, color=C.TEXT, fontweight="bold", fontfamily="Segoe UI")
-    fig.text(0.06, 0.66, "es una pregunta,", fontsize=34, color=C.TEXT, fontweight="bold", fontfamily="Segoe UI")
-    fig.text(0.06, 0.58, "no una oportunidad.", fontsize=34, color=C.GOLD, fontweight="bold", fontfamily="Segoe UI")
-    scribble(fig, 0.06, 0.62, 0.545)
-    if paso:
-        hand(fig, 0.08, 0.40, "antes de decidir, faltan:", size=28, color=C.TEXT2)
-        hand(fig, 0.12, 0.31, "costos · márgenes · volumen", size=32, color=C.TEXT)
-        firma(fig)
-    grab(fig, [1600, 3900][paso])
+fig = new()
+T(fig, 0.065, 0.83, "Una diferencia de precio\nes una pregunta,", 66, bold=True, va="top", linespacing=1.15)
+T(fig, 0.065, 0.695, "no una oportunidad.", 66, bold=True, color=C.GOLD, va="top")
+scribble(fig, 0.065, 0.85, 0.625)
+hand(fig, 0.075, 0.45, "antes de decidir, faltan:", 48, color=C.TEXT2, rot=0)
+hand(fig, 0.11, 0.37, "costos · márgenes · volumen", 56, color=C.TEXT, rot=-1)
+T(fig, 0.065, 0.19, "Ernesto Roldán | Business Intelligence & Analytics", 32, bold=True, color=C.TEXT)
+T(fig, 0.065, 0.145, "Python · Plotly", 24, color=C.TEXT2, small_ok=True)
+T(fig, 0.065, 0.075, "Fuente: PROFECO, Quién es Quién en los Precios,\n16-31 ago 2026", 28, color=C.MUTED, linespacing=1.25)
+grab(fig, 4000, "carrusel_05_cierre.png")
 
-# ----------------------------------------------------------------------------- guardar
+# ----------------------------------------------------------------------------- exportar
 total = sum(ms for _, ms in frames) / 1000
-out = ROOT / "outputs/social/historia_embudo.gif"
-pal = [f.convert("RGB").quantize(colors=128, method=Image.Quantize.MEDIANCUT, dither=Image.Dither.NONE) for f, _ in frames]
-pal[0].save(out, save_all=True, append_images=pal[1:], duration=[ms for _, ms in frames], loop=0, optimize=True, disposal=1)
-print(f"{out.name}: {len(frames)} cuadros, {total:.1f} s, {out.stat().st_size / 1e6:.1f} MB")
+assert total <= 20, total
+gif = OUT / "historia_embudo.gif"
+pal = [f.quantize(colors=96, method=Image.Quantize.MEDIANCUT, dither=Image.Dither.NONE) for f, _ in frames]
+pal[0].save(gif, save_all=True, append_images=pal[1:], duration=[ms for _, ms in frames], loop=0, optimize=True, disposal=1)
+mb = gif.stat().st_size / 1e6
+print(f"{gif.name}: {len(frames)} cuadros, {total:.1f} s, {mb:.2f} MB")
+print(f"cifras: {R['paso_ingenua']:.1f}% → {R['validada']:.1f}% · >30%: {P30_ING:.1f}% → {P30_VAL:.1f}% · "
+      f"{R['n_sobreviven']:.0f} pasan la prueba, {R['n_relevantes']:.0f} relevantes de {R['n_articulos']:,.0f}")
+print("cinco que sobreviven:", "; ".join(f"{corto(r_)} {r_.brecha_pct:.0f}%" for r_ in pick.itertuples()))
