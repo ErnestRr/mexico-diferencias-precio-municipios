@@ -8,3 +8,4 @@ jupyter
 nbformat
 nbclient
 adjustText
+kaleido>=1.0
