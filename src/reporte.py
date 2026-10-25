@@ -62,6 +62,12 @@ def build(cfg, v, res, prod, sob, casos, falta, sens, gallery, path):
     v["delta_pp"] = v["validada"] - v["paso_ingenua"]
     v["pct_val_30"] = (x.extremos > 30).mean() * 100
     v["delta_30"] = v["pct_val_30"] - (x.ingenua > 30).mean() * 100
+    cam = dict(zip(res.paso, res.cambio_pp))
+    v["h_pres"], v["h_tiendas"] = dpp(cam["presentacion"]), dpp(cam["tiendas"])
+    v["h_marca"], v["h_giro"] = dpp(cam["marca"]), dpp(cam["giro"])
+    v["h_sobre_azar"] = dpp(v["validada"] - v["azar"])
+    v["h_delta"] = dpp(v["delta_pp"])
+    v["h_cad_sob"], v["h_cad_no"] = up(v["cadena_sobreviven"]), up(v["cadena_no_sobreviven"], 1)
     R_ = lambda t: _md(PL.render(t, v))
     rep = cfg["reporte"]
     charts = {g["archivo"]: g for g in cfg["graficas"]}

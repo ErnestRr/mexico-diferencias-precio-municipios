@@ -188,14 +188,14 @@ readme_md:
       alt: "Distribución de la diferencia entre municipios, ingenua contra validada"
       puntos:
         - "Agrupando por nombre de producto, **{pct_ingenua_30:.0f}%** de los productos parece costar más de 30% más en otro municipio."
-        - "Al validar, solo **{pct_val_30:.0f}%** (▼ {delta_30:+.0f} pp)."
+        - "Al validar, solo **{pct_val_30:.0f}%**: {c_delta_30}."
     - titulo: "2. Al comparar lo mismo, la diferencia se encoge"
       grafica: null
       tabla: embudo
       puntos:
-        - "La **presentación** y el **número de tiendas** hacen casi todo el trabajo."
+        - "La **presentación** ({c_pres}) y el **número de tiendas** ({c_tiendas}) hacen casi todo el trabajo."
         - "La fecha de captura y los errores casi no cambian nada: {pct_igual_semanas:.0f}% de los precios es igual entre semanas."
-        - "Lo que queda ({validada:.1f}%) es casi el azar ({azar:.1f}%): es diferencia entre tiendas, no entre municipios."
+        - "Lo que queda ({validada:.1f}%) apenas supera al azar ({azar:.1f}%): {c_sobre_azar}. Es diferencia entre tiendas, no entre municipios."
     - titulo: "3. Cómo nace una diferencia falsa"
       grafica: 03_casos_artefacto.png
       alt: "Cinco casos de diferencia ingenua que era un artefacto"
@@ -208,7 +208,7 @@ readme_md:
       tabla: sobreviven
       puntos:
         - "**{n_sobreviven:.0f} de {n_articulos:,.0f}** artículos pasan la prueba contra el azar; **{n_relevantes:.0f}** con una diferencia de 10% o más."
-        - "Sobre todo bebidas de supermercado ({rel_bebidas:.0f}) y frescos ({rel_frescos:.0f}). Ahí la misma cadena cobra distinto por plaza: ▲ {cadena_sobreviven:.0f}% contra ▲ {cadena_no_sobreviven:.1f}% en el resto."
+        - "Sobre todo bebidas de supermercado ({rel_bebidas:.0f}) y frescos ({rel_frescos:.0f}). Ahí la misma cadena cobra distinto por plaza: {c_cad_sob} contra {c_cad_no} en el resto."
     - titulo: "5. Antes de decidir: lo que falta"
       grafica: 05_que_falta.png
       alt: "Información necesaria para evaluar una oportunidad y si está en los datos"
@@ -237,8 +237,8 @@ reporte:
     Un reporte dice que un producto cuesta {paso_ingenua:.0f}% más en otra ciudad. ¿Es una oportunidad para abrir plaza,
     mover precios o negociar con un proveedor?
   h1: >-
-    No todavía: al comparar lo mismo, la diferencia baja de <b>{paso_ingenua:.0f}%</b> a <b>{validada:.1f}%</b>, casi lo
-    que daría el azar
+    No todavía: al comparar lo mismo, la diferencia baja de <b>{paso_ingenua:.0f}%</b> a <b>{validada:.1f}%</b>
+    ({h_delta}), casi lo que daría el azar (<span class='gold'>{azar:.1f}%</span>)
   intro: >-
     Precios al consumidor en las tiendas que monitorea PROFECO, 16–31 ago 2026; {productos_universo:.0f} productos, sin
     medicamentos.
@@ -266,9 +266,9 @@ reporte:
       frase: "Cada validación exige algo más; la línea dorada es lo que daría repartir al azar las mismas tiendas."
       grafica: embudo
       puntos:
-        - "Presentación y número de tiendas hacen casi todo el trabajo."
+        - "Misma presentación {h_pres} y 3 tiendas o más {h_tiendas}: hacen casi todo el trabajo. Marca y variedad {h_marca}; giro {h_giro}."
         - "Fecha de captura y errores casi no cambian nada: el precio no se mueve en la quincena ({pct_igual_semanas:.0f}% igual entre semanas)."
-        - "Lo que queda (<b>{validada:.1f}%</b>) es casi el azar (<b>{azar:.1f}%</b>): diferencia entre tiendas, no entre municipios."
+        - "Lo que queda (<b>{validada:.1f}%</b>) apenas supera al azar (<span class='gold'>{azar:.1f}%</span>): {h_sobre_azar}. Es diferencia entre tiendas, no entre municipios."
     - titulo: "3. Cómo nace una <b>diferencia falsa</b>"
       frase: "Cinco casos elegidos con una regla: el producto que más cambia en cada validación."
       grafica: 03_casos_artefacto.png
@@ -278,9 +278,9 @@ reporte:
       grafica: 04_casos_sobreviven.png
       puntos:
         - "Sobre todo <b>bebidas de supermercado</b> ({rel_bebidas:.0f}) y <b>frescos</b> ({rel_frescos:.0f}), más tortilla en tortillerías ({rel_tortilla:.0f})."
-        - "Ahí la misma cadena cobra distinto por plaza: <span class='pos'>▲ {cadena_sobreviven:.0f}%</span> contra <span class='pos'>▲ {cadena_no_sobreviven:.1f}%</span> en el resto."
+        - "Ahí la misma cadena cobra distinto por plaza: {h_cad_sob} contra {h_cad_no} en el resto."
     - titulo: "5. Antes de decidir: lo que <b>falta</b>"
-      frase: "Una diferencia que sobrevive es una pregunta, no una oportunidad: {falta_no:.0f} de 7 piezas no están en los datos públicos."
+      frase: "Una diferencia que sobrevive es una pregunta, no una oportunidad: <span class='neg'>{falta_no:.0f} de 7</span> piezas no están en los datos públicos."
       grafica: 05_que_falta.png
       puntos: []
   acciones_cortas:

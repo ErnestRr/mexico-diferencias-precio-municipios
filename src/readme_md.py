@@ -25,6 +25,15 @@ def _d(v, dec=1, suf=" pp"):
     return ("▲ " if v > 0 else "▼ ") + f"{v:+.{dec}f}{suf}".replace("-", "−")
 
 
+def _c(v, dec=1, suf=" pp"):
+    """Delta con color por signo, en notación que GitHub sí colorea: verde ▲ positivo, rojo ▼ negativo."""
+    if abs(v) < 0.05:
+        return "= 0.0" + suf
+    col, sym = (C.GREEN_T, r"\blacktriangle") if v > 0 else (C.RED_T, r"\blacktriangledown")
+    s = r"\ \text{pp}" if suf.strip() == "pp" else (r"\%" if suf == "%" else "")
+    return "$\\color{" + col + "}{" + sym + r"\ " + f"{v:+.{dec}f}" + s + "}$"
+
+
 def _tabla(head, rows):
     out = ["| " + " | ".join(head) + " |", "|" + "|".join(["---"] * len(head)) + "|"]
     out += ["| " + " | ".join(str(c) for c in r) + " |" for r in rows]
@@ -41,18 +50,30 @@ def build(cfg, v, root):
     v["pct_val_30"] = (x.extremos > 30).mean() * 100
     v["delta_30"] = v["pct_val_30"] - (x.ingenua > 30).mean() * 100
     v["delta_pp"] = v["validada"] - v["paso_ingenua"]
-    R = lambda t: _usd(PL.render(t, v))
+    cam = dict(zip(res.paso, res.cambio_pp))
+    color = {"c_delta_30": _c(v["delta_30"], 0), "c_delta_pp": _c(v["delta_pp"]),
+             "c_pres": _c(cam["presentacion"]), "c_tiendas": _c(cam["tiendas"]),
+             "c_sobre_azar": _c(v["validada"] - v["azar"]), "c_desaparece": _c(-v["desaparece_pct"], 0, "%"),
+             "c_cad_sob": _c(v["cadena_sobreviven"], 0, "%"), "c_cad_no": _c(v["cadena_no_sobreviven"], 1, "%")}
+    for k in color:
+        v[k] = f"@@{k}@@"
+
+    def R(t):
+        out = _usd(PL.render(t, v))
+        for k, m in color.items():
+            out = out.replace(f"@@{k}@@", m)
+        return out
     r, md = cfg["readme"], cfg["readme_md"]
 
     tablas = {
         "embudo": _tabla(["Paso", "Diferencia típica", "Cambio"],
-                         [[f"{i}. {t.nombre}", f"**{t.brecha_mediana:.1f}%**", "—" if i == 0 else _d(t.cambio_pp)]
+                         [[f"{i}. {t.nombre}", f"**{t.brecha_mediana:.1f}%**", "—" if i == 0 else _c(t.cambio_pp)]
                           for i, t in enumerate(res.itertuples())] + [["Referencia: azar", f"{v['azar']:.1f}%", ""]]),
         "artefactos": _tabla(["Qué lo producía", "Producto", "Antes", "Después", "Cambio"],
-                             [[c.tipo, c.producto, f"{c.antes:.0f}%", f"{c.despues:.0f}%", _d(c.despues - c.antes, 0)]
+                             [[c.tipo, c.producto, f"{c.antes:.0f}%", f"{c.despues:.0f}%", _c(c.despues - c.antes, 0)]
                               for c in casos.itertuples()]),
         "sobreviven": _tabla(["Artículo", "Giro", "Diferencia", "IC90", "Barato → caro típico"],
-                             [[c.etiqueta, M.giro_corto(c.giro), f"▲ {c.brecha_pct:.0f}%", f"{c.ic90_inf:.0f}–{c.ic90_sup:.0f}%",
+                             [[c.etiqueta, M.giro_corto(c.giro), _c(c.brecha_pct, 0, "%"), f"{c.ic90_inf:.0f}–{c.ic90_sup:.0f}%",
                                _usd(f"{c.mun_barato} {C.money(c.precio_barato)} → {c.mun_caro} {C.money(c.precio_caro)}")]
                               for c in sob[sob.relevante].sort_values("p_valor").head(8).itertuples()]),
     }
@@ -66,12 +87,12 @@ def build(cfg, v, root):
          f"![{r['alt_grafica']}]({r['grafica_principal']})", "",
          _tabla(["Indicador", "Cifra"], [
              ["Diferencia típica a lo bruto", f"**{v['paso_ingenua']:.0f}%**"],
-             ["Al comparar el mismo artículo", f"**{v['validada']:.1f}%** ({_d(v['delta_pp'])})"],
+             ["Al comparar el mismo artículo", f"**{v['validada']:.1f}%** ({color['c_delta_pp']})"],
              ["Lo que daría el azar con las mismas tiendas", f"{v['azar']:.1f}%"],
-             ["Parte de la diferencia ingenua que desaparece", f"▼ {v['desaparece_pct']:.0f}%"],
+             ["Parte de la diferencia ingenua que desaparece", f"**{v['desaparece_pct']:.0f}%** " + "$\color{" + C.RED_T + "}{\blacktriangledown}$"],
              ["Artículos con diferencia relevante", f"{v['n_relevantes']:.0f} de {v['n_articulos']:,.0f}"]]), "",
          "*Brecha P90/P10 = cuánto más cuesta un producto en el municipio caro típico que en el barato típico. "
-         "IC90 = rango probable. ▼ baja · ▲ sube.*", ""]
+         "IC90 = rango probable. Verde ▲ = sube o es positivo; rojo ▼ = baja o es negativo.*", ""]
 
     for p in md["pasos"]:
         L += [f"## {p['titulo']}", ""]
