@@ -1,10 +1,10 @@
 # Una diferencia de precio entre ciudades no es una oportunidad de negocio
 
-**Objetivo.** Mostrar a directores, dueños y equipos comerciales que una diferencia de precio entre municipios no basta para hablar de una oportunidad de rentabilidad, y cuánto de esa diferencia sobrevive cuando se valida que los productos, las presentaciones y los periodos son comparables.
+**Objetivo.** Medir cuánto de una diferencia de precio entre municipios se mantiene cuando se comparan productos, presentaciones y periodos equivalentes, y distinguir lo que los datos públicos permiten afirmar de lo que haría falta para evaluar una oportunidad de negocio.
 
-**Cuando el mismo producto parece más caro en un municipio que en otro, ¿cuánto de esa diferencia sobrevive al validar que se compara lo mismo, y qué faltaría saber para hablar de una oportunidad de negocio?**
+**Cuando un mismo producto parece más caro en un municipio que en otro, ¿qué parte de esa diferencia se sostiene al validar que se compara lo mismo, y qué información adicional se necesitaría para interpretarla como oportunidad?**
 
-**[Ver el reporte interactivo](https://ernestrr.github.io/mexico-diferencias-precio-municipios/)**: la historia en cinco pasos, el embudo y un selector para revisar cada producto (`docs/index.html`).
+**[Ver el reporte interactivo](https://ernestrr.github.io/mexico-diferencias-precio-municipios/)**: la historia en cinco pasos, el embudo de comparabilidad y un selector para revisar cada producto.
 
 ## El hallazgo principal
 
