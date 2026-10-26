@@ -19,9 +19,9 @@ Un reporte dice que un producto cuesta **25% más** en otra ciudad. Antes de abr
 | Indicador | Cifra |
 |---|---|
 | Diferencia típica a lo bruto | **25%** |
-| Al comparar el mismo artículo | **11.7%** ($\color{#ff6b5f}{\blacktriangledown\ -13.3\ \text{pp}}$) |
+| Al comparar el mismo artículo | **11.7%** ($\color{#ff6b5f}{\blacktriangledown~-13.3}$ pp) |
 | Lo que daría el azar con las mismas tiendas | 10.9% |
-| Parte de la diferencia ingenua que desaparece | **53%** $\color{#ff6b5f}{lacktriangledown}$ |
+| Parte de la diferencia ingenua que desaparece | **53%** $\color{#ff6b5f}{\blacktriangledown}$ |
 | Artículos con diferencia relevante | 21 de 1,238 |
 
 *Brecha P90/P10 = cuánto más cuesta un producto en el municipio caro típico que en el barato típico. IC90 = rango probable. Verde ▲ = sube o es positivo; rojo ▼ = baja o es negativo.*
@@ -31,24 +31,24 @@ Un reporte dice que un producto cuesta **25% más** en otra ciudad. Antes de abr
 ![Distribución de la diferencia entre municipios, ingenua contra validada](outputs/charts/02_distribucion_ingenua_validada.png)
 
 - Agrupando por nombre de producto, **43%** de los productos parece costar más de 30% más en otro municipio.
-- Al validar, solo **10%**: $\color{#ff6b5f}{\blacktriangledown\ -34\ \text{pp}}$.
+- Al validar, solo **10%**: $\color{#ff6b5f}{\blacktriangledown~-34}$ pp.
 
 ## 2. Al comparar lo mismo, la diferencia se encoge
 
 | Paso | Diferencia típica | Cambio |
 |---|---|---|
 | 0. Comparación ingenua | **25.0%** | — |
-| 1. Misma presentación | **20.4%** | $\color{#ff6b5f}{\blacktriangledown\ -4.5\ \text{pp}}$ |
-| 2. Mismo artículo | **17.7%** | $\color{#ff6b5f}{\blacktriangledown\ -2.7\ \text{pp}}$ |
-| 3. Mismo giro | **17.0%** | $\color{#ff6b5f}{\blacktriangledown\ -0.7\ \text{pp}}$ |
-| 4. 3 tiendas o más | **11.6%** | $\color{#ff6b5f}{\blacktriangledown\ -5.4\ \text{pp}}$ |
-| 5. Mismo periodo | **11.7%** | $\color{#3fcf95}{\blacktriangle\ +0.1\ \text{pp}}$ |
-| 6. Sin errores de captura | **11.7%** | $\color{#ff6b5f}{\blacktriangledown\ -0.1\ \text{pp}}$ |
+| 1. Misma presentación | **20.4%** | $\color{#ff6b5f}{\blacktriangledown~-4.5}$ pp |
+| 2. Mismo artículo | **17.7%** | $\color{#ff6b5f}{\blacktriangledown~-2.7}$ pp |
+| 3. Mismo giro | **17.0%** | $\color{#ff6b5f}{\blacktriangledown~-0.7}$ pp |
+| 4. 3 tiendas o más | **11.6%** | $\color{#ff6b5f}{\blacktriangledown~-5.4}$ pp |
+| 5. Mismo periodo | **11.7%** | $\color{#3fcf95}{\blacktriangle~+0.1}$ pp |
+| 6. Sin errores de captura | **11.7%** | $\color{#ff6b5f}{\blacktriangledown~-0.1}$ pp |
 | Referencia: azar | 10.9% |  |
 
-- La **presentación** ($\color{#ff6b5f}{\blacktriangledown\ -4.5\ \text{pp}}$) y el **número de tiendas** ($\color{#ff6b5f}{\blacktriangledown\ -5.4\ \text{pp}}$) hacen casi todo el trabajo.
+- La **presentación** ($\color{#ff6b5f}{\blacktriangledown~-4.5}$ pp) y el **número de tiendas** ($\color{#ff6b5f}{\blacktriangledown~-5.4}$ pp) hacen casi todo el trabajo.
 - La fecha de captura y los errores casi no cambian nada: 81% de los precios es igual entre semanas.
-- Lo que queda (11.7%) apenas supera al azar (10.9%): $\color{#3fcf95}{\blacktriangle\ +0.7\ \text{pp}}$. Es diferencia entre tiendas, no entre municipios.
+- Lo que queda (11.7%) apenas supera al azar (10.9%): $\color{#3fcf95}{\blacktriangle~+0.7}$ pp. Es diferencia entre tiendas, no entre municipios.
 
 ## 3. Cómo nace una diferencia falsa
 
@@ -56,10 +56,10 @@ Un reporte dice que un producto cuesta **25% más** en otra ciudad. Antes de abr
 
 | Qué lo producía | Producto | Antes | Después | Cambio |
 |---|---|---|---|---|
-| Presentación distinta | Almendras | 538% | 19% | $\color{#ff6b5f}{\blacktriangledown\ -519\ \text{pp}}$ |
-| Otra marca | Ajonjolí | 41% | 5% | $\color{#ff6b5f}{\blacktriangledown\ -36\ \text{pp}}$ |
-| Otro giro | Cinta Adhesiva | 56% | 29% | $\color{#ff6b5f}{\blacktriangledown\ -26\ \text{pp}}$ |
-| Una sola tienda | Basa | 71% | 3% | $\color{#ff6b5f}{\blacktriangledown\ -68\ \text{pp}}$ |
+| Presentación distinta | Almendras | 538% | 19% | $\color{#ff6b5f}{\blacktriangledown~-519}$ pp |
+| Otra marca | Ajonjolí | 41% | 5% | $\color{#ff6b5f}{\blacktriangledown~-36}$ pp |
+| Otro giro | Cinta Adhesiva | 56% | 29% | $\color{#ff6b5f}{\blacktriangledown~-26}$ pp |
+| Una sola tienda | Basa | 71% | 3% | $\color{#ff6b5f}{\blacktriangledown~-68}$ pp |
 | Captura errónea | Carne Pollo | 7% | 7% | = 0.0 pp |
 
 - Caso extremo: **Almendras**, 538% a lo bruto. En Monterrey el promedio es \$232 y 67% de los registros son 1 kg; en Lerma es \$36.50 y 100% son 75 g.
@@ -70,17 +70,17 @@ Un reporte dice que un producto cuesta **25% más** en otra ciudad. Antes de abr
 
 | Artículo | Giro | Diferencia | IC90 | Barato → caro típico |
 |---|---|---|---|---|
-| Tortilla de Maíz (1 kg, granel) | tortillería | $\color{#3fcf95}{\blacktriangle\ +47\%}$ | 36–50% | Iztapalapa \$20.50 → Benito Juárez (Quintana Roo) \$29.96 |
-| Refresco Coca Cola Zero (botella 600 ml) | supermercado | $\color{#3fcf95}{\blacktriangle\ +27\%}$ | 20–35% | Miguel Hidalgo \$16.49 → San Luis Potosí \$20.99 |
-| Refresco Fresca (botella 3 lt, no retornable) | supermercado | $\color{#3fcf95}{\blacktriangle\ +26\%}$ | 17–32% | Benito Juárez (Ciudad de México) \$41.96 → Culiacán \$53.04 |
-| Refresco Sprite (botella 3 lt, no retornable) | supermercado | $\color{#3fcf95}{\blacktriangle\ +23\%}$ | 8–30% | Benito Juárez (Ciudad de México) \$41.97 → Hermosillo \$51.17 |
-| Cerveza Tecate (paquete con 12 latas de 355 ml) | supermercado | $\color{#3fcf95}{\blacktriangle\ +26\%}$ | 15–34% | La Paz \$173 → Tlalnepantla \$219 |
-| Refresco Jarritos (botella 2 lt, no retornable, tamarindo) | supermercado | $\color{#3fcf95}{\blacktriangle\ +20\%}$ | 16–21% | Venustiano Carranza \$24.90 → Guadalajara \$29.96 |
-| Cerveza Bohemia Pilsner (canasta con 6 botellas de 355 ml, no retornab…) | supermercado | $\color{#3fcf95}{\blacktriangle\ +16\%}$ | 16–19% | Naucalpan de Juárez \$129 → Tampico \$150 |
-| Cerveza Indio (paquete con 12 latas de 355 ml) | supermercado | $\color{#3fcf95}{\blacktriangle\ +34\%}$ | 25–42% | Hermosillo \$163 → Iztapalapa \$219 |
+| Tortilla de Maíz (1 kg, granel) | tortillería | $\color{#3fcf95}{\blacktriangle~+47}$% | 36–50% | Iztapalapa \$20.50 → Benito Juárez (Quintana Roo) \$29.96 |
+| Refresco Coca Cola Zero (botella 600 ml) | supermercado | $\color{#3fcf95}{\blacktriangle~+27}$% | 20–35% | Miguel Hidalgo \$16.49 → San Luis Potosí \$20.99 |
+| Refresco Fresca (botella 3 lt, no retornable) | supermercado | $\color{#3fcf95}{\blacktriangle~+26}$% | 17–32% | Benito Juárez (Ciudad de México) \$41.96 → Culiacán \$53.04 |
+| Refresco Sprite (botella 3 lt, no retornable) | supermercado | $\color{#3fcf95}{\blacktriangle~+23}$% | 8–30% | Benito Juárez (Ciudad de México) \$41.97 → Hermosillo \$51.17 |
+| Cerveza Tecate (paquete con 12 latas de 355 ml) | supermercado | $\color{#3fcf95}{\blacktriangle~+26}$% | 15–34% | La Paz \$173 → Tlalnepantla \$219 |
+| Refresco Jarritos (botella 2 lt, no retornable, tamarindo) | supermercado | $\color{#3fcf95}{\blacktriangle~+20}$% | 16–21% | Venustiano Carranza \$24.90 → Guadalajara \$29.96 |
+| Cerveza Bohemia Pilsner (canasta con 6 botellas de 355 ml, no retornab…) | supermercado | $\color{#3fcf95}{\blacktriangle~+16}$% | 16–19% | Naucalpan de Juárez \$129 → Tampico \$150 |
+| Cerveza Indio (paquete con 12 latas de 355 ml) | supermercado | $\color{#3fcf95}{\blacktriangle~+34}$% | 25–42% | Hermosillo \$163 → Iztapalapa \$219 |
 
 - **45 de 1,238** artículos pasan la prueba contra el azar; **21** con una diferencia de 10% o más.
-- Sobre todo bebidas de supermercado (10) y frescos (6). Ahí la misma cadena cobra distinto por plaza: $\color{#3fcf95}{\blacktriangle\ +13\%}$ contra $\color{#3fcf95}{\blacktriangle\ +1.3\%}$ en el resto.
+- Sobre todo bebidas de supermercado (10) y frescos (6). Ahí la misma cadena cobra distinto por plaza: $\color{#3fcf95}{\blacktriangle~+13}$% contra $\color{#3fcf95}{\blacktriangle~+1.3}$% en el resto.
 
 ## 5. Antes de decidir: lo que falta
 

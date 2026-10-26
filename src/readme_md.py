@@ -26,12 +26,14 @@ def _d(v, dec=1, suf=" pp"):
 
 
 def _c(v, dec=1, suf=" pp"):
-    """Delta con color por signo, en notación que GitHub sí colorea: verde ▲ positivo, rojo ▼ negativo."""
+    """Delta con color por signo en GitHub: verde ▲ positivo, rojo ▼ negativo.
+
+    Solo la flecha y el número van en la fórmula de color. La unidad (% o pp) va fuera: GitHub convierte «\\%» en
+    «%», que en la fórmula abre un comentario y rompe la llave de cierre. Tampoco se usan «\\ » ni «\\,»."""
     if abs(v) < 0.05:
         return "= 0.0" + suf
-    col, sym = (C.GREEN_T, r"\blacktriangle") if v > 0 else (C.RED_T, r"\blacktriangledown")
-    s = r"\ \text{pp}" if suf.strip() == "pp" else (r"\%" if suf == "%" else "")
-    return "$\\color{" + col + "}{" + sym + r"\ " + f"{v:+.{dec}f}" + s + "}$"
+    col, sym = (C.GREEN_T, "\\blacktriangle") if v > 0 else (C.RED_T, "\\blacktriangledown")
+    return "$\\color{" + col + "}{" + sym + "~" + f"{v:+.{dec}f}" + "}$" + suf
 
 
 def _tabla(head, rows):
@@ -89,7 +91,7 @@ def build(cfg, v, root):
              ["Diferencia típica a lo bruto", f"**{v['paso_ingenua']:.0f}%**"],
              ["Al comparar el mismo artículo", f"**{v['validada']:.1f}%** ({color['c_delta_pp']})"],
              ["Lo que daría el azar con las mismas tiendas", f"{v['azar']:.1f}%"],
-             ["Parte de la diferencia ingenua que desaparece", f"**{v['desaparece_pct']:.0f}%** " + "$\color{" + C.RED_T + "}{\blacktriangledown}$"],
+             ["Parte de la diferencia ingenua que desaparece", f"**{v['desaparece_pct']:.0f}%** " + r"$\color{" + C.RED_T + r"}{\blacktriangledown}$"],
              ["Artículos con diferencia relevante", f"{v['n_relevantes']:.0f} de {v['n_articulos']:,.0f}"]]), "",
          "*Brecha P90/P10 = cuánto más cuesta un producto en el municipio caro típico que en el barato típico. "
          "IC90 = rango probable. Verde ▲ = sube o es positivo; rojo ▼ = baja o es negativo.*", ""]
